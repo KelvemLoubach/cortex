@@ -1,0 +1,356 @@
+{
+  "knowledge_base": {
+    "introduction": "Olá! Eu sou o assistente virtual da CORTEX. Minha função é ajudar você a entender como nossas soluções de tecnologia podem transformar a sua empresa, aumentando a eficiência e economizando recursos. Como posso te ajudar hoje?",
+    "services": [
+      {
+        "service_id": "automacao_de_processos",
+        "title": "Automação de Processos",
+        "description": "Nós transformamos tarefas manuais e repetitivas em processos automáticos que funcionam de forma inteligente e sem a necessidade de intervenção humana constante. Isso libera sua equipe para se concentrar em atividades que realmente agregam valor ao negócio.",
+        "how_it_works": "Primeiro, mapeamos os processos atuais da sua empresa para identificar os gargalos e as tarefas que consomem mais tempo. Em seguida, utilizamos ferramentas tecnológicas para criar 'robôs' de software que executam essas tarefas de forma programada, como preencher formulários, enviar e-mails, gerar relatórios e muito mais. Esses robôs seguem regras pré-definidas para garantir precisão e consistência.",
+        "benefits": [
+          "**Aumento de Produtividade:** As tarefas são executadas 24 horas por dia, 7 dias por semana, sem pausas ou interrupções, acelerando as entregas.",
+          "**Redução de Custos:** Diminui a necessidade de mão de obra para tarefas repetitivas e minimiza os custos associados a erros humanos e retrabalho.",
+          "**Redução de Erros:** A automação garante que os processos sejam executados sempre da mesma maneira, com alta precisão.",
+          "**Foco no Estratégico:** Sua equipe pode se dedicar a atividades mais estratégicas e criativas, que impulsionam o crescimento da empresa."
+        ]
+      },
+      {
+        "service_id": "integracao_de_sistemas",
+        "title": "Integração de Sistemas",
+        "description": "Conectamos os diversos softwares e plataformas que sua empresa já utiliza (ERP, CRM, planilhas, etc.) para que eles 'conversem' entre si e troquem informações de forma automática. O objetivo é centralizar os dados e eliminar a necessidade de inserir a mesma informação em vários lugares diferentes.",
+        "how_it_works": "Utilizamos tecnologias como APIs (Interfaces de Programação de Aplicações) para criar pontes seguras entre os seus sistemas. Essas pontes permitem que, ao atualizar uma informação em um sistema (como o de vendas), ela seja automaticamente refletida nos outros (como o de estoque e o financeiro), em tempo real.",
+        "benefits": [
+          "**Informações Centralizadas:** Tenha uma visão única e completa do seu negócio, com todos os dados atualizados e consistentes em um só lugar.",
+          "**Tomada de Decisão Mais Rápida:** Com acesso a dados confiáveis e em tempo real, suas decisões se tornam mais seguras e estratégicas.",
+          "**Eficiência Operacional:** Reduz drasticamente o tempo gasto com tarefas manuais de digitação e a ocorrência de erros.",
+          "**Melhora a Experiência do Cliente:** Com informações integradas, é possível oferecer um atendimento mais rápido e personalizado."
+        ]
+      },
+      {
+        "service_id": "assistentes_virtuais_inteligentes",
+        "title": "Assistentes Virtuais Inteligentes (Chatbots)",
+        "description": "Desenvolvemos chatbots e assistentes virtuais que utilizam inteligência artificial para interagir de forma natural com seus clientes ou com sua equipe interna, seja por texto ou por voz. Eles podem responder dúvidas, realizar agendamentos, qualificar leads e muito mais.",
+        "how_it_works": "Os assistentes virtuais são programas de computador que usam Processamento de Linguagem Natural (PLN) para entender o que as pessoas escrevem ou falam e, a partir daí, executar tarefas ou fornecer respostas. Eles aprendem com cada interação, tornando-se cada vez mais inteligentes e precisos.",
+        "benefits": [
+          "**Atendimento 24/7:** Seus clientes podem ser atendidos a qualquer hora do dia, todos os dias da semana, mesmo fora do horário comercial.",
+          "**Redução da Carga de Trabalho:** O chatbot pode resolver as dúvidas mais frequentes e solicitações simples, liberando sua equipe humana para casos mais complexos.",
+          "**Respostas em Tempo Real:** Reduz o tempo de espera do cliente, oferecendo soluções instantâneas para suas necessidades.",
+          "**Captação de Leads:** Pode ser usado em seu site para interagir com visitantes, qualificá-los e agendar reuniões para a equipe de vendas."
+        ]
+      },
+      {
+        "service_id": "aplicativos_e_sistemas_sob_medida",
+        "title": "Aplicativos e Sistemas Sob Medida",
+        "description": "Criamos softwares e aplicativos totalmente personalizados para atender às necessidades específicas da sua empresa. Em vez de se adaptar a uma solução genérica, você terá uma tecnologia moldada para os seus processos.",
+        "how_it_works": "O processo começa com uma análise profunda das suas operações e objetivos. A partir daí, desenhamos e desenvolvemos uma solução (para web, celular ou computador) que resolve seus desafios de forma precisa, com as funcionalidades exatas que você precisa.",
+        "benefits": [
+          "**100% Adaptado ao seu Negócio:** A solução é construída para se encaixar perfeitamente nos seus processos, otimizando a eficiência.",
+          "**Vantagem Competitiva:** Tenha funcionalidades únicas que seus concorrentes, que usam sistemas prontos, não possuem.",
+          "**Melhor Custo-Benefício a Longo Prazo:** Apesar do investimento inicial, você economiza ao não pagar por funcionalidades que não usa e por ter um sistema que escala com o seu crescimento.",
+          "**Integração Perfeita:** O software pode ser projetado para se integrar perfeitamente com outros sistemas que você já utiliza."
+        ]
+      },
+      {
+        "service_id": "inteligencia_artificial_aplicada",
+        "title": "Inteligência Artificial Aplicada",
+        "description": "Utilizamos a Inteligência Artificial (IA) para ir além da automação simples. Analisamos seus dados para encontrar padrões, prever tendências e gerar insights que ajudam você a tomar decisões mais inteligentes e estratégicas.",
+        "how_it_works": "A IA usa algoritmos avançados para analisar grandes volumes de dados (histórico de vendas, comportamento de clientes, etc.) e identificar correlações que seriam impossíveis de perceber manualmente. Com base nisso, ela pode prever resultados futuros, como a demanda por um produto ou o risco de um cliente cancelar um serviço.",
+        "benefits": [
+          "**Decisões Baseadas em Dados:** Substitua a intuição por análises concretas, aumentando a segurança nas suas escolhas estratégicas.",
+          "**Previsão de Tendências:** Antecipe-se às mudanças do mercado e às necessidades dos seus clientes.",
+          "**Otimização de Processos:** A IA pode identificar gargalos e sugerir melhorias nos seus processos de forma autônoma.",
+          "**Personalização em Escala:** Entenda o comportamento individual dos seus clientes e ofereça experiências e produtos altamente personalizados."
+        ]
+      },
+      {
+        "service_id": "tratamento_e_organizacao_de_dados",
+        "title": "Tratamento e Organização de Dados",
+        "description": "Transformamos dados brutos, desorganizados e espalhados em diferentes planilhas e sistemas em informações claras, confiáveis e prontas para serem usadas na tomada de decisões. O objetivo é garantir que você possa confiar nos seus dados.",
+        "how_it_works": "O processo envolve a limpeza (remoção de duplicatas e erros), a padronização (garantir que as informações estejam no mesmo formato) e a centralização dos seus dados. Depois, criamos painéis visuais (dashboards) para que você possa acompanhar seus principais indicadores de forma simples e intuitiva.",
+        "benefits": [
+          "**Dados Confiáveis:** Garanta que todos na empresa estejam olhando para as mesmas informações, sem divergências.",
+          "**Facilidade de Acesso:** Informações importantes ficam disponíveis de forma visual e fácil de entender, através de gráficos e relatórios.",
+          "**Visão Clara do Negócio:** Acompanhe seus KPIs (Indicadores-Chave de Desempenho) em tempo real para entender a saúde da sua empresa.",
+          "**Economia de Tempo:** Sua equipe não precisa mais gastar horas juntando e limpando planilhas para gerar relatórios."
+        ]
+      }
+    ],
+    "use_cases_for_small_business": [
+      {
+        "category": "Organização e Produtividade",
+        "use_cases": [
+          {
+            "title": "Controle de Estoque com Alerta de Reposição",
+            "problem": "É fácil perder o controle do que tem no estoque, o que leva a perder vendas por falta de produto ou a comprar itens que não precisava, empatando dinheiro.",
+            "solution": "Criamos um sistema de controle simples, que pode ser até uma planilha inteligente, onde você dá baixa a cada venda. Quando um produto atinge o nível mínimo que definimos, o sistema te envia um alerta automático por e-mail, para você nunca mais ser pego de surpresa."
+          },
+          {
+            "title": "Agenda Online para Clientes",
+            "problem": "Você perde muito tempo no telefone ou WhatsApp apenas para marcar horários com clientes, o que interrompe seu trabalho e pode gerar conflitos de agenda.",
+            "solution": "Implementamos uma agenda online onde seus clientes podem ver seus horários disponíveis e fazer o agendamento sozinhos, a qualquer hora do dia. O sistema bloqueia o horário automaticamente e envia uma confirmação para você e para o cliente."
+          },
+          {
+            "title": "Painel Básico com Relatórios de Vendas",
+            "problem": "Você não sabe exatamente quanto vendeu no mês ou qual produto ou serviço é o mais lucrativo sem ter que passar horas analisando anotações ou planilhas.",
+            "solution": "Criamos um painel visual simples que se conecta com seus registros de vendas e mostra, de forma clara e automática, seu faturamento, os itens mais vendidos e outros indicadores importantes para você saber exatamente como está a saúde do seu negócio."
+          },
+          {
+            "title": "Aplicativo Simples para Orçamentos e Pedidos",
+            "problem": "Ao visitar um cliente, você faz anotações em papel ou no bloco de notas do celular, correndo o risco de perder as informações ou cometer erros ao passar o pedido a limpo depois.",
+            "solution": "Desenvolvemos um aplicativo simples para o seu celular onde você pode registrar orçamentos e pedidos na hora, de forma padronizada. As informações ficam salvas e organizadas, prontas para dar andamento no trabalho."
+          }
+        ]
+      },
+      {
+        "category": "Marketing e Vendas",
+        "use_cases": [
+          {
+            "title": "Chatbot no WhatsApp para Primeiras Dúvidas",
+            "problem": "Você não consegue responder a todos os clientes no WhatsApp instantaneamente, especialmente fora do horário comercial, o que pode levar à perda de uma venda.",
+            "solution": "Configuramos um chatbot simples que responde às perguntas mais comuns (horário de funcionamento, endereço, formas de pagamento) automaticamente. Se o cliente precisar de algo mais, o bot avisa você para continuar a conversa."
+          },
+          {
+            "title": "Envio Automático de Promoções",
+            "problem": "Você tem uma lista de clientes, mas enviar uma promoção para cada um, manualmente, leva muito tempo e esforço.",
+            "solution": "Criamos uma automação onde você escreve a mensagem da promoção uma única vez e o sistema dispara para toda a sua lista de clientes no WhatsApp ou e-mail com um único clique, economizando horas de trabalho."
+          },
+          {
+            "title": "Coleta Automática de Avaliações de Clientes",
+            "problem": "Pedir feedback aos clientes é constrangedor ou você simplesmente esquece, perdendo a chance de usar depoimentos positivos para atrair mais negócios.",
+            "solution": "Programamos um sistema que, um dia após a conclusão de um serviço ou a entrega de um produto, envia uma mensagem automática para o cliente pedindo uma avaliação. As respostas positivas podem ser usadas no seu site ou redes sociais."
+          }
+        ]
+      },
+      {
+        "category": "Atendimento ao Cliente",
+        "use_cases": [
+          {
+            "title": "Resposta Automática Fora do Horário Comercial",
+            "problem": "Clientes que entram em contato à noite ou nos fins de semana se sentem ignorados por não receberem nenhuma resposta.",
+            "solution": "Configuramos uma resposta automática para seu WhatsApp ou e-mail que informa ao cliente seu horário de atendimento e que você responderá assim que possível. Isso gerencia a expectativa e mostra profissionalismo."
+          },
+          {
+            "title": "Acompanhamento Simples de Pedidos",
+            "problem": "Clientes perguntam constantemente 'qual o status do meu pedido?', sobrecarregando seu WhatsApp e tomando seu tempo.",
+            "solution": "Criamos um sistema simples (pode ser até uma página no seu site) onde o cliente pode inserir o número do pedido e ver em que etapa ele está (ex: Em produção, Enviado, Entregue), diminuindo a ansiedade e as perguntas repetitivas."
+          }
+        ]
+      },
+      {
+        "category": "Administração e Processos Internos",
+        "use_cases": [
+          {
+            "title": "Backup Automático na Nuvem",
+            "problem": "O risco de perder todos os seus documentos importantes (notas fiscais, cadastros de clientes) se o seu computador quebrar ou for roubado.",
+            "solution": "Instalamos um pequeno programa que faz uma cópia de segurança automática das suas pastas mais importantes para um serviço na nuvem (como Google Drive ou Dropbox) todos os dias, garantindo que seus dados estejam sempre seguros."
+          },
+          {
+            "title": "Organização Automática de Notas Fiscais",
+            "problem": "As notas fiscais de fornecedores chegam por e-mail e ficam perdidas na sua caixa de entrada, dificultando a organização para o contador.",
+            "solution": "Criamos uma automação que 'assiste' seu e-mail. Toda vez que uma nota fiscal (XML ou PDF) chega, o sistema salva o arquivo automaticamente em uma pasta organizada por mês e fornecedor na nuvem, deixando tudo pronto para a contabilidade."
+          },
+          {
+            "title": "Relatório Mensal de Faturamento e Despesas",
+            "problem": "Chega o fim do mês e você não tem uma visão clara de quanto realmente lucrou, pois as receitas e despesas estão desorganizadas.",
+            "solution": "Desenvolvemos uma planilha inteligente onde você lança suas entradas e saídas. No fim do mês, ela gera um relatório automático e visual mostrando seu faturamento total, suas principais despesas e seu lucro líquido, de forma simples e direta."
+          }
+        ]
+      }
+    ],
+    "use_cases_by_department": [
+      {
+        "department": "Financeiro",
+        "use_cases": [
+          {
+            "title": "Conciliação Bancária Automática",
+            "problem": "Sua equipe financeira leva horas ou dias conferindo manualmente cada pagamento no extrato do banco com os registros de vendas do sistema.",
+            "solution": "Criamos um robô que lê seu extrato bancário e o compara com seu sistema interno, conciliando os pagamentos automaticamente e apontando qualquer divergência em segundos. Isso elimina erros de digitação e libera sua equipe para análises mais importantes."
+          },
+          {
+            "title": "Emissão Automática de Notas Fiscais",
+            "problem": "A cada venda, um funcionário precisa entrar no sistema, preencher os dados e emitir a nota fiscal, um processo lento e sujeito a erros.",
+            "solution": "Assim que um pagamento é confirmado no seu sistema de vendas ou e-commerce, a nota fiscal é gerada e enviada para o e-mail do cliente de forma 100% automática, garantindo agilidade e conformidade fiscal."
+          },
+          {
+            "title": "Relatórios de Fluxo de Caixa por E-mail",
+            "problem": "A diretoria precisa de relatórios financeiros, mas a equipe leva muito tempo para compilar os dados de diferentes planilhas e sistemas.",
+            "solution": "Programamos o envio automático de relatórios financeiros (diários, semanais ou mensais) para os e-mails dos gestores, com gráficos e os principais indicadores do negócio, sem que ninguém precise montá-los manualmente."
+          },
+          {
+            "title": "Alertas de Contas a Pagar e Receber",
+            "problem": "O esquecimento de pagar um boleto gera multas, e a demora em cobrar um cliente afeta o fluxo de caixa.",
+            "solution": "Implementamos um sistema de alertas automáticos que avisa sua equipe sobre contas que estão próximas do vencimento, tanto as que a empresa precisa pagar quanto as que precisa receber, otimizando a gestão financeira."
+          }
+        ]
+      },
+      {
+        "department": "Vendas & Comercial",
+        "use_cases": [
+          {
+            "title": "Geração Automática de Propostas",
+            "problem": "Vendedores perdem um tempo precioso formatando propostas comerciais, em vez de estarem negociando e vendendo.",
+            "solution": "Desenvolvemos um sistema onde o vendedor preenche poucas informações-chave e uma proposta comercial profissional, com a identidade visual da sua empresa, é gerada em segundos, pronta para ser enviada ao cliente."
+          },
+          {
+            "title": "Integração do CRM com WhatsApp",
+            "problem": "Conversas importantes com clientes no WhatsApp se perdem e não são registradas oficialmente, dificultando o acompanhamento da equipe.",
+            "solution": "Conectamos o WhatsApp da sua equipe de vendas ao sistema de CRM. Assim, o histórico das conversas é salvo automaticamente no perfil do cliente, criando um registro centralizado e acessível a todos."
+          },
+          {
+            "title": "Aplicativo de Pedidos para Vendedores Externos",
+            "problem": "Vendedores que trabalham na rua têm dificuldade para registrar pedidos, consultar o estoque ou acessar o histórico de um cliente em tempo real.",
+            "solution": "Criamos um aplicativo para celular exclusivo para a sua equipe, permitindo que eles façam pedidos, verifiquem a disponibilidade de produtos e consultem dados de clientes de qualquer lugar, agilizando as vendas em campo."
+          },
+          {
+            "title": "Painel de Vendas em Tempo Real",
+            "problem": "A gestão de vendas depende de relatórios que chegam com atraso, impedindo a tomada de decisões rápidas.",
+            "solution": "Construímos um painel online (dashboard) que exibe os indicadores de vendas em tempo real: metas, desempenho por vendedor, produtos mais vendidos, etc. Isso permite que os gestores ajam rapidamente para corrigir rotas e motivar a equipe."
+          }
+        ]
+      },
+      {
+        "department": "Marketing",
+        "use_cases": [
+          {
+            "title": "Campanhas de Marketing Segmentadas",
+            "problem": "Enviar o mesmo e-mail para todos os clientes tem baixa eficácia e pode irritar quem recebe conteúdo irrelevante.",
+            "solution": "Criamos automações que disparam e-mails ou mensagens personalizadas com base no comportamento do cliente. Por exemplo, um e-mail com um cupom de desconto para quem abandonou um carrinho de compras."
+          },
+          {
+            "title": "Monitoramento da Marca nas Redes Sociais",
+            "problem": "Ficar sabendo de uma reclamação ou crise de imagem tarde demais, quando o problema já se tornou grande.",
+            "solution": "Implementamos um sistema que monitora as redes sociais e a internet em busca de menções à sua marca, enviando um alerta em tempo real para a equipe de marketing sempre que um comentário relevante for publicado."
+          },
+          {
+            "title": "Pesquisa de Satisfação Automática",
+            "problem": "Coletar feedback dos clientes é um processo manual e inconsistente, resultando em poucos dados para análise.",
+            "solution": "Configuramos o envio automático de uma pesquisa de satisfação (como NPS) por e-mail ou WhatsApp alguns dias após o cliente efetuar uma compra ou receber um atendimento, coletando feedback de forma contínua."
+          }
+        ]
+      },
+      {
+        "department": "Logística & Estoque",
+        "use_cases": [
+          {
+            "title": "Controle de Estoque Integrado e em Tempo Real",
+            "problem": "Vender um produto que não está mais em estoque, gerando frustração no cliente e problemas operacionais.",
+            "solution": "Integramos seu sistema de vendas (loja física, e-commerce, marketplaces) com o de controle de estoque. A cada venda, o sistema dá baixa no produto instantaneamente, garantindo que a informação de estoque seja sempre precisa."
+          },
+          {
+            "title": "Previsão de Reabastecimento com IA",
+            "problem": "Comprar produtos em excesso, empatando o capital de giro, ou comprar de menos e perder vendas por falta de estoque.",
+            "solution": "Utilizamos Inteligência Artificial para analisar seu histórico de vendas e identificar padrões. Com base nisso, o sistema prevê a demanda futura e sugere o momento e a quantidade ideal para comprar mais de cada produto."
+          },
+          {
+            "title": "Otimização de Rotas de Entrega",
+            "problem": "Altos custos com combustível e tempo devido a rotas de entrega mal planejadas e ineficientes.",
+            "solution": "Implementamos um sistema que, com base nos endereços de entrega do dia, calcula as rotas mais rápidas e econômicas, considerando o trânsito e as prioridades, para reduzir custos e agilizar o trabalho dos entregadores."
+          }
+        ]
+      },
+      {
+        "department": "Recursos Humanos",
+        "use_cases": [
+          {
+            "title": "Integração do Ponto Digital com a Folha de Pagamento",
+            "problem": "O RH perde dias no fim do mês calculando manualmente as horas de cada funcionário para fechar a folha de pagamento.",
+            "solution": "Implantamos um sistema de ponto digital (via celular ou computador) que se integra diretamente ao software da folha de pagamento, calculando horas trabalhadas, extras e faltas de forma automática e sem erros."
+          },
+          {
+            "title": "Automação do Processo de Admissão (Onboarding)",
+            "problem": "O processo de contratação de um novo colaborador é lento, envolvendo a troca de vários e-mails e o preenchimento manual de muitos documentos.",
+            "solution": "Criamos um fluxo automatizado onde o novo colaborador recebe um link para preencher seus dados e enviar os documentos online. O contrato é gerado e enviado para assinatura digital, agilizando todo o processo."
+          },
+          {
+            "title": "Chatbot Interno para Dúvidas de Funcionários",
+            "problem": "A equipe de RH passa grande parte do tempo respondendo às mesmas perguntas sobre férias, benefícios, holerites e políticas da empresa.",
+            "solution": "Desenvolvemos um chatbot interno, acessível pela intranet ou Teams/Slack, onde os funcionários podem tirar essas dúvidas comuns a qualquer hora, liberando o RH para focar em atividades mais estratégicas."
+          }
+        ]
+      },
+      {
+        "department": "Atendimento ao Cliente & Suporte",
+        "use_cases": [
+          {
+            "title": "Chatbot no WhatsApp para Primeiro Atendimento",
+            "problem": "A equipe de atendimento fica sobrecarregada com perguntas simples e repetitivas, aumentando o tempo de espera para todos os clientes.",
+            "solution": "Implementamos um chatbot no WhatsApp que faz o primeiro atendimento, respondendo às dúvidas mais frequentes (ex: status do pedido, horário de funcionamento). Se o problema for complexo, ele transfere para um atendente humano, já com todo o contexto da conversa."
+          },
+          {
+            "title": "Abertura Automática de Tickets de Suporte",
+            "problem": "Solicitações de suporte que chegam por e-mail se perdem na caixa de entrada, não são priorizadas e não há como medir o tempo de resposta.",
+            "solution": "Criamos um sistema que transforma automaticamente cada e-mail recebido no endereço de suporte em um ticket de atendimento numerado, organizando as solicitações em uma fila e permitindo o acompanhamento do status por parte do cliente e da equipe."
+          }
+        ]
+      },
+      {
+        "department": "TI, Segurança e Manutenção",
+        "use_cases": [
+          {
+            "title": "Monitoramento Remoto de Servidores e Computadores",
+            "problem": "Descobrir que um sistema essencial parou apenas quando os funcionários começam a reclamar, causando horas de inatividade.",
+            "solution": "Instalamos um sistema que monitora a saúde dos seus servidores e computadores 24/7. Ao primeiro sinal de problema (ex: disco cheio, alto uso de memória), ele envia um alerta para a equipe de TI, permitindo uma ação proativa antes que o problema afete a operação."
+          },
+          {
+            "title": "Atualização e Instalação de Softwares em Massa",
+            "problem": "O técnico de TI precisa ir de máquina em máquina para instalar ou atualizar um software, um processo demorado e que interrompe o trabalho dos funcionários.",
+            "solution": "Implementamos uma ferramenta que permite à equipe de TI instalar, atualizar e remover softwares em todos os computadores da empresa de forma centralizada e remota, geralmente fora do horário de expediente para não atrapalhar ninguém."
+          },
+          {
+            "title": "Backup Automático e Verificado na Nuvem",
+            "problem": "O risco de perder todos os dados da empresa por uma falha de equipamento, ataque hacker ou simples esquecimento de fazer o backup manual.",
+            "solution": "Configuramos rotinas de backup automático dos seus dados mais importantes para um ambiente seguro na nuvem. Diariamente, o sistema envia um relatório confirmando que a cópia de segurança foi realizada com sucesso, garantindo a tranquilidade da empresa."
+          },
+          {
+            "title": "Aplicação Automática de Atualizações de Segurança",
+            "problem": "Sistemas desatualizados são a principal porta de entrada para ataques de vírus e hackers.",
+            "solution": "Criamos uma automação que verifica e instala as últimas correções de segurança (patches) em servidores e sistemas operacionais assim que são disponibilizadas pelos fabricantes, mantendo sua empresa protegida contra as ameaças mais recentes."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Você só trabalha com empresas grandes?",
+        "answer": "Não, atendo empresas de todos os portes. No entanto, as soluções de automação e integração são especialmente eficazes para médias e grandes empresas, que geralmente lidam com um volume maior de processos e dados, o que gera um retorno sobre o investimento mais rápido e evidente."
+      },
+      {
+        "question": "É preciso trocar os sistemas que já uso?",
+        "answer": "Não necessariamente. Um dos nossos principais serviços é a integração de sistemas. Na maioria dos casos, conseguimos conectar e automatizar os softwares que você já utiliza, evitando o custo e o transtorno de uma migração completa."
+      },
+      {
+        "question": "As soluções são prontas ou personalizadas?",
+        "answer": "Nossas soluções são sempre personalizadas. Acreditamos que cada empresa tem suas particularidades, por isso, dedicamos tempo para entender suas necessidades e desenhar uma solução sob medida, que se encaixe perfeitamente na sua realidade."
+      },
+      {
+        "question": "Você oferece suporte após a entrega do projeto?",
+        "answer": "Sim, ofereço suporte contínuo para garantir que a solução implementada continue funcionando perfeitamente e se mantenha atualizada com as necessidades do seu negócio. Podemos fazer ajustes e evoluções conforme sua empresa cresce."
+      },
+      {
+        "question": "Em quanto tempo um projeto fica pronto?",
+        "answer": "O prazo de entrega varia conforme a complexidade do projeto. Automações mais simples podem levar apenas alguns dias. Projetos mais completos, como o desenvolvimento de um sistema sob medida, podem levar algumas semanas. Sempre forneço um cronograma detalhado após a análise inicial."
+      },
+      {
+        "question": "Quanto custa um projeto de automação?",
+        "answer": "O investimento depende da complexidade da solução. Para te dar um valor preciso, preciso primeiro entender suas necessidades. Posso fazer uma análise inicial gratuita para identificar as oportunidades de automação na sua empresa e, a partir daí, apresentar um orçamento detalhado e sem compromisso."
+      },
+      {
+        "question": "Minha equipe vai saber usar a nova ferramenta? Vocês oferecem treinamento?",
+        "answer": "Sim, com certeza. A entrega de qualquer projeto inclui um treinamento completo para a sua equipe. O objetivo é garantir que todos se sintam confortáveis e saibam extrair o máximo de benefícios da nova solução."
+      }
+    ],
+    "onboarding_process": {
+      "title": "Como Funciona o Nosso Processo de Trabalho?",
+      "steps": [
+        "**1. Diagnóstico Inicial:** Começamos com uma conversa para entender os seus desafios, objetivos e como sua operação funciona hoje. É uma etapa gratuita e sem compromisso.",
+        "**2. Desenho da Solução:** Com base no diagnóstico, eu desenho uma proposta de solução detalhada, explicando o que será feito, quais os benefícios esperados e qual o investimento necessário.",
+        "**3. Desenvolvimento e Implementação:** Após a sua aprovação, iniciamos o desenvolvimento da solução, com entregas parciais para que você possa acompanhar o progresso e dar feedbacks.",
+        "**4. Treinamento e Suporte:** Com a solução pronta, treinamos sua equipe e oferecemos suporte contínuo para garantir que tudo funcione como o esperado e continue evoluindo com a sua empresa."
+      ]
+    },
+    "call_to_action": {
+      "title": "Pronto para dar o próximo passo?",
+      "text": "Se você acredita que alguma dessas soluções pode ajudar a sua empresa, vamos agendar uma conversa rápida e sem compromisso? Assim, posso entender melhor suas necessidades e mostrar na prática como a tecnologia pode impulsionar seus resultados."
+    }
+  }
+}
