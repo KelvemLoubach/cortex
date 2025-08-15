@@ -80,7 +80,7 @@ export default function AIChat() {
         })),
       }
 
-      const response = await fetch('http://localhost:56455/api/chat', {
+      const response = await fetch('https://back-go-cortex.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
