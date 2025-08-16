@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cortex Software - Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-section {
+            margin-bottom: 40px;
+        }
+
+        .brain-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .brain-icon::before {
+            content: '🧠';
+            font-size: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .logo-text .cortex {
+            color: #2a2a2a;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text .x {
+            color: #ff6b35;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .links-container {
+            margin: 40px 0;
+        }
+
+        .link-btn {
+            display: block;
+            margin: 16px 0;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            color: white;
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: #ff6b35;
+        }
+
+        .link-btn:hover::before {
+            opacity: 1;
+        }
+
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            font-weight: 600;
+        }
+
+        .primary-btn:hover {
+            background: linear-gradient(135deg, #e55a2b, #e6841a);
+            border-color: #ff6b35;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .footer-logo {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .logo-text {
+                font-size: 28px;
+            }
+            
+            .brain-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .brain-icon::before {
+                font-size: 35px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <div class="brain-icon pulse"></div>
+            <div class="logo-text">
+                <span class="cortex">CORTE</span><span class="x">X</span>
+            </div>
+            <div class="subtitle">SOFTWARE</div>
+        </div>
+        
+        <div class="links-container">
+            <a href="https://somoscortex.netlify.app" class="link-btn primary-btn" target="_blank">
+                <span>🌐 Acessar Nosso Site</span>
+            </a>
+            
+            <a href="https://wa.me/5533999493748" class="link-btn" target="_blank">
+                <span>💬 Falar no WhatsApp</span>
+            </a>
+            
+            <a href="mailto:contato@cortexsoftware.com.br" class="link-btn" target="_blank">
+                <span>📧 Enviar E-mail</span>
+            </a>
+            
+            <a href="/cortexsoftware" class="link-btn" target="_blank">
+                <span>📱 Seguir no Instagram</span>
+            </a>
+            
+            <a href="https://linkedin.com/company/cortex-software" class="link-btn" target="_blank">
+                <span>💼 Conectar no LinkedIn</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            Soluções tecnológicas inovadoras<br>
+            © 2025 <span class="footer-logo">Cortex Software</span>
+        </div>
+    </div>
+</body>
+</html>
