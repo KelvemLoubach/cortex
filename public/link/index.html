@@ -1,283 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORTEX - Cadastro de Clientes</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            border-top: 5px solid #ff8c00;
-        }
-
-        .logo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .logo h1 {
-            color: #ff8c00;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .info-text {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #555;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #ff8c00;
-            box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.2);
-        }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 14px;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .btn {
-            background-color: #ff8c00;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #e67e00;
-        }
-
-        .btn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: center;
-            display: none;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #ff8c00;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORTEX - Cadastro de Clientes</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #ffffff;
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; padding: 20px;
+    }
+    .container {
+      width: 100%; max-width: 500px; background-color: #ffffff;
+      border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,.1);
+      padding: 40px; border-top: 5px solid #ff8c00;
+    }
+    .logo { text-align: center; margin-bottom: 30px; }
+    .logo h1 { color:#ff8c00; font-size:32px; font-weight:700; letter-spacing:1px; }
+    .info-text { text-align:center; margin-bottom:30px; color:#555; font-size:16px; line-height:1.5; }
+    .form-group { margin-bottom:25px; position: relative; }
+    .form-group label { display:block; margin-bottom:8px; color:#333; font-weight:500; }
+    .form-group input {
+      width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:5px; font-size:16px; transition:border .3s;
+    }
+    .form-group input:focus { outline:none; border-color:#ff8c00; box-shadow:0 0 0 2px rgba(255,140,0,.2); }
+    .error-message { color:#e74c3c; font-size:14px; margin-top:5px; display:none; }
+    .btn {
+      background:#ff8c00; color:#fff; border:none; border-radius:5px;
+      padding:12px 20px; font-size:16px; font-weight:600; cursor:pointer; width:100%; transition:background .3s;
+    }
+    .btn:hover { background:#e67e00; }
+    .btn:disabled { background:#ccc; cursor:not-allowed; }
+    .success-message {
+      background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin-top:20px; text-align:center; display:none;
+    }
+    .loading { display:none; text-align:center; margin-top:20px; }
+    .loading-spinner {
+      border:4px solid #f3f3f3; border-top:4px solid #ff8c00; border-radius:50%;
+      width:30px; height:30px; animation:spin 1s linear infinite; margin:0 auto;
+    }
+    @keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <h1>CORTEX</h1>
-        </div>
-        
-        <div class="info-text">
-            Por favor, preencha as informações abaixo para nos ajudar a melhorar nossos serviços.
-        </div>
-        
-        <form id="clientForm">
-            <div class="form-group">
-                <label for="name">Nome Completo</label>
-                <input type="text" id="name" name="name" placeholder="Digite seu nome completo">
-                <div class="error-message" id="nameError">Por favor, digite seu nome completo</div>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
-                <div class="error-message" id="emailError">Por favor, digite um e-mail válido</div>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Telefone</label>
-                <input type="tel" id="phone" name="phone" placeholder="Digite seu telefone">
-                <div class="error-message" id="phoneError">Por favor, digite um telefone válido</div>
-            </div>
-            
-            <button type="submit" class="btn" id="submitBtn">Enviar</button>
-        </form>
-        
-        <div class="loading" id="loading">
-            <div class="loading-spinner"></div>
-            <p>Enviando dados...</p>
-        </div>
-        
-        <div class="success-message" id="successMessage">
-            <h3>Obrigado!</h3>
-            <p>Suas informações foram enviadas com sucesso.</p>
-            <p>Você será redirecionado em breve...</p>
-        </div>
+  <div class="container">
+    <div class="logo"><h1>CORTEX</h1></div>
+    <div class="info-text">Por favor, preencha as informações abaixo para nos ajudar a melhorar nossos serviços.</div>
+
+    <form id="clientForm">
+      <div class="form-group">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" autocomplete="name">
+        <div class="error-message" id="nameError">Por favor, digite seu nome completo</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" autocomplete="email">
+        <div class="error-message" id="emailError">Por favor, digite um e-mail válido</div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Digite seu telefone" autocomplete="tel">
+        <div class="error-message" id="phoneError">Por favor, digite um telefone válido</div>
+      </div>
+
+      <button type="submit" class="btn" id="submitBtn">Enviar</button>
+    </form>
+
+    <div class="loading" id="loading">
+      <div class="loading-spinner"></div>
+      <p>Enviando dados...</p>
     </div>
 
-    <script>
-        document.getElementById('clientForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Resetando mensagens de erro
-            document.querySelectorAll('.error-message').forEach(function(element) {
-                element.style.display = 'none';
-            });
-            
-            // Ocultando mensagem de sucesso
-            document.getElementById('successMessage').style.display = 'none';
-            
-            // Obtendo valores dos campos
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            
-            // Flag para verificar se o formulário é válido
-            let isValid = true;
-            
-            // Validação do nome
-            if (name === '') {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validação do email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email === '' || !emailRegex.test(email)) {
-                document.getElementById('emailError').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validação do telefone
-            const phoneRegex = /^(\(?\d{2}\)?\s?)?(\d{4,5}-?\d{4})$/;
-            if (phone === '' || !phoneRegex.test(phone)) {
-                document.getElementById('phoneError').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Se o formulário for válido, envia os dados
-            if (isValid) {
-                // Desabilitar botão e mostrar loading
-                document.getElementById('submitBtn').disabled = true;
-                document.getElementById('loading').style.display = 'block';
-                
-                // Preparar dados para envio
-                const clientData = {
-                    name: name,
-                    email: email,
-                    phone: phone
-                };
-                
-                // Enviar dados para o backend (substitua a URL pela sua API)
-                fetch('https://back-go-cortex.onrender.com/api/lead', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(clientData)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro ao enviar dados');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Sucesso no envio
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('clientForm').reset();
-                    
-                    // Redirecionar após 5 segundos
-                    setTimeout(function() {
-                        // Substitua pela URL de redirecionamento desejada
-                        window.location.href = 'https://www.somoscortex.online/link/link.html';
-                    }, 1000);
-                })
-                .catch(error => {
-                    // Erro no envio
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('submitBtn').disabled = false;
-                    
-                    // Mostrar mensagem de erro genérica
-                    const errorMessage = document.createElement('div');
-                    errorMessage.className = 'error-message';
-                    errorMessage.style.display = 'block';
-                    errorMessage.textContent = 'Erro ao enviar dados. Tente novamente mais tarde.';
-                    document.getElementById('clientForm').appendChild(errorMessage);
-                    
-                    console.error('Erro:', error);
-                });
-            }
-        });
-    </script>
+    <div class="success-message" id="successMessage">
+      <h3>Obrigado!</h3>
+      <p>Suas informações foram enviadas com sucesso.</p>
+      <p>Você será redirecionado em breve...</p>
+    </div>
+  </div>
+
+  <script>
+    // ==================== CONFIG ====================
+    const STORAGE_KEY   = 'cortex_lead_done';
+    const STORAGE_TTL_MS = 2 * 24 * 60 * 60 * 1000; // 2 dias
+    const REDIRECT_URL  = 'https://www.somoscortex.online/link/link.html';
+    const LEAD_ENDPOINT = 'https://back-go-cortex.onrender.com/api/lead';
+
+    // ==================== STORAGE c/ EXPIRAÇÃO ====================
+    function setWithExpiry(key, value, ttlMs) {
+      try {
+        const item = {
+          value,
+          expiresAt: Date.now() + ttlMs
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+      } catch (e) {
+        // se o storage estiver cheio/desabilitado, seguimos sem travar a UX
+        console.warn('localStorage indisponível ao gravar:', e);
+      }
+    }
+
+    function getWithExpiry(key) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (!raw) return null;
+        const item = JSON.parse(raw);
+        if (!item || typeof item.expiresAt !== 'number') return null;
+        if (Date.now() > item.expiresAt) {
+          localStorage.removeItem(key);
+          return null;
+        }
+        return item.value;
+      } catch (e) {
+        console.warn('localStorage indisponível ao ler:', e);
+        return null;
+      }
+    }
+
+    // ==================== REDIRECT SE JÁ CONCLUÍDO ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      const done = getWithExpiry(STORAGE_KEY);
+      if (done === true) {
+        // redireciona direto sem exibir o formulário
+        window.location.replace(REDIRECT_URL);
+      }
+    });
+
+    // ==================== FORM SUBMIT ====================
+    document.getElementById('clientForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // limpar erros
+      document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+      document.getElementById('successMessage').style.display = 'none';
+
+      const name  = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      let isValid = true;
+
+      if (name === '') {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === '' || !emailRegex.test(email)) {
+        document.getElementById('emailError').style.display = 'block';
+        isValid = false;
+      }
+      const phoneRegex = /^(\(?\d{2}\)?\s?)?(\d{4,5}-?\d{4})$/;
+      if (phone === '' || !phoneRegex.test(phone)) {
+        document.getElementById('phoneError').style.display = 'block';
+        isValid = false;
+      }
+      if (!isValid) return;
+
+      // bloquear UI
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('loading').style.display = 'block';
+
+      const clientData = { name, email, phone };
+
+      fetch(LEAD_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(clientData)
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Erro ao enviar dados');
+        return response.json();
+      })
+      .then(() => {
+        // marca como concluído por 2 dias e redireciona
+        setWithExpiry(STORAGE_KEY, true, STORAGE_TTL_MS);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('clientForm').reset();
+        setTimeout(() => {
+          window.location.href = REDIRECT_URL;
+        }, 800);
+      })
+      .catch(err => {
+        console.error('Erro:', err);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('submitBtn').disabled = false;
+
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Erro ao enviar dados. Tente novamente mais tarde.';
+        document.getElementById('clientForm').appendChild(errorMessage);
+      });
+    });
+  </script>
 </body>
 </html>
