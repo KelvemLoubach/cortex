@@ -1,1 +1,285 @@
-ola
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio – Cards</title>
+  <meta name="description" content="Página simples e moderna com cards que linkam para trabalhos externos." />
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-2: #ff7f26;
+      --black: #0f0f10;
+      --white: #ffffff;
+      --ink: #1a1b1e;
+      --muted: #8f9096;
+      --card-bg: #141416;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 10px 24px rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.2);
+      --radius: 18px;
+    }
+
+    /* Reset e base tipográfica */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--white);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(255,106,0,0.15), transparent 40%),
+                  radial-gradient(1000px 600px at 100% 0%, rgba(255,255,255,0.06), transparent 50%),
+                  var(--black);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    header {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .title {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .logo {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.18), 0 6px 14px rgba(255,106,0,0.35);
+    }
+
+    h1 { font-weight: 800; font-size: clamp(22px, 3vw, 32px); margin: 0; letter-spacing: 0.2px; }
+    .subtitle { color: var(--muted); margin: 0; font-size: 0.98rem; }
+
+    /* Busca (opcional) */
+    .toolbar { display: flex; gap: 10px; margin-top: 8px; }
+    .search {
+      flex: 1;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 10px 14px;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .search:focus-within { border-color: rgba(255,106,0,0.6); box-shadow: 0 0 0 4px rgba(255,106,0,0.15); }
+    .search input {
+      flex: 1; background: transparent; border: 0; outline: none; color: var(--white);
+      font-size: 0.98rem;
+    }
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px; color: var(--muted);
+      border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Grid dos cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px; margin-top: 16px;
+    }
+
+    /* Card completo como link */
+    .card {
+      display: grid; grid-template-rows: auto 1fr; text-decoration: none; color: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(255,106,0,0.4); }
+    .card:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(255,106,0,0.25); border-color: var(--orange); }
+
+    .thumb { aspect-ratio: 16/10; width: 100%; object-fit: cover; background: #222; }
+
+    .content { padding: 14px 14px 16px; display: grid; gap: 8px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px; width: max-content;
+      font-size: 12px; color: #fff;
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      padding: 6px 10px; border-radius: 999px; letter-spacing: .3px;
+      box-shadow: 0 6px 14px rgba(255,106,0,0.35);
+    }
+    .card h3 { margin: 4px 0 0; font-size: 1.02rem; letter-spacing: 0.2px; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .chipbar { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+    .chip {
+      font-size: 11px; color: var(--muted); border: 1px dashed var(--border);
+      padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,0.02);
+    }
+
+    footer { margin-top: 28px; color: var(--muted); font-size: 0.9rem; text-align: center; }
+    footer a { color: var(--white); text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.3); }
+    footer a:hover { color: var(--orange-2); }
+
+    /* Reduz animação se usuário preferir */
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; }
+      .card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Meus Trabalhos</h1>
+      </div>
+      <p class="subtitle">Cards com imagem, título e descrição. Clique para visitar cada projeto.</p>
+
+      <div class="toolbar">
+        <label class="search" aria-label="Buscar trabalhos">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          <input id="q" type="search" placeholder="Buscar por título, tag ou descrição…" autocomplete="off" />
+          <span class="kbd">Ctrl /</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="grid" id="grid" aria-live="polite">
+      <!-- DICA: duplique um <a class="card"> para adicionar novos trabalhos -->
+      <a class="card" href="https://example.com/projeto-landing" target="_blank" rel="noopener" aria-label="Abrir Projeto Landing Moderno em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/landing/800/500" alt="Prévia de uma landing page moderna" />
+        <div class="content">
+          <span class="tag">Landing</span>
+          <h3>Landing Moderna</h3>
+          <p>Conversão + SEO. Seções modulares, CTA forte e performance excelente.</p>
+          <div class="chipbar">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">A11y</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/dashboard-analytics" target="_blank" rel="noopener" aria-label="Abrir Dashboard Analytics em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/dashboard/800/500" alt="Painel com gráficos e métricas" />
+        <div class="content">
+          <span class="tag">Dashboard</span>
+          <h3>Dashboard Analytics</h3>
+          <p>Visualização de métricas em tempo real com gráficos claros e responsivos.</p>
+          <div class="chipbar">
+            <span class="chip">Charts</span><span class="chip">Responsivo</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/ecommerce-ui" target="_blank" rel="noopener" aria-label="Abrir UI de E-commerce em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/shop/800/500" alt="Interface de loja virtual com cartões de produto" />
+        <div class="content">
+          <span class="tag">E‑commerce</span>
+          <h3>UI de Loja</h3>
+          <p>Catálogo rápido, filtros úteis e checkout enxuto para aumentar conversão.</p>
+          <div class="chipbar">
+            <span class="chip">UX</span><span class="chip">Lighthouse 95+</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/portfolio-fotografia" target="_blank" rel="noopener" aria-label="Abrir Portfólio de Fotografia em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/photo/800/500" alt="Galeria de fotos com grid elegante" />
+        <div class="content">
+          <span class="tag">Galeria</span>
+          <h3>Portfólio de Fotografia</h3>
+          <p>Grid fluido com foco total nas imagens, transições sutis e navegação simples.</p>
+          <div class="chipbar">
+            <span class="chip">Lightbox</span><span class="chip">Lazyload</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/app-financas" target="_blank" rel="noopener" aria-label="Abrir App de Finanças em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/finance/800/500" alt="Aplicativo financeiro com cartões de contas e gráficos" />
+        <div class="content">
+          <span class="tag">App</span>
+          <h3>App de Finanças</h3>
+          <p>Gestão de despesas com foco em clareza, acessibilidade e dados seguros.</p>
+          <div class="chipbar">
+            <span class="chip">PWA</span><span class="chip">Aria‑labels</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/blog-tech" target="_blank" rel="noopener" aria-label="Abrir Blog Tech em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/blog/800/500" alt="Página de blog com destaques e artigos" />
+        <div class="content">
+          <span class="tag">Conteúdo</span>
+          <h3>Blog Tech</h3>
+          <p>Leitura confortável, tipografia refinada e destaque para artigos recentes.</p>
+          <div class="chipbar">
+            <span class="chip">MDX</span><span class="chip">SEO</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/site-evento" target="_blank" rel="noopener" aria-label="Abrir Site de Evento em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/event/800/500" alt="Página de evento com banner e programação" />
+        <div class="content">
+          <span class="tag">Evento</span>
+          <h3>Landing de Evento</h3>
+          <p>Informações claras, programação objetiva e CTA de inscrição destacado.</p>
+          <div class="chipbar">
+            <span class="chip">CTA</span><span class="chip">Conversão</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://example.com/saas-home" target="_blank" rel="noopener" aria-label="Abrir Página SaaS em nova aba">
+        <img class="thumb" src="https://picsum.photos/seed/saas/800/500" alt="Página inicial de SaaS com seções de features" />
+        <div class="content">
+          <span class="tag">SaaS</span>
+          <h3>Página SaaS</h3>
+          <p>Seções de features, depoimentos e pricing, tudo leve e direto ao ponto.</p>
+          <div class="chipbar">
+            <span class="chip">Pricing</span><span class="chip">SSR‑ready</span>
+          </div>
+        </div>
+      </a>
+    </main>
+
+    <footer>
+      Feito com ❤ em laranja, preto e branco. — 
+      <a href="#" onclick="history.back();return false;" aria-label="Voltar à página anterior">Voltar</a>
+    </footer>
+  </div>
+
+  <script>
+    // Busca simples: filtra por título, descrição e chips
+    const q = document.getElementById('q');
+    const grid = document.getElementById('grid');
+    const cards = Array.from(grid.querySelectorAll('.card'));
+
+    function filter(val) {
+      const term = val.trim().toLowerCase();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(term) ? '' : 'none';
+      });
+    }
+
+    q.addEventListener('input', (e) => filter(e.target.value));
+
+    // Atalho Ctrl+/ para focar a busca
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+        e.preventDefault(); q.focus();
+      }
+    });
+  </script>
+</body>
+</html>
