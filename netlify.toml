@@ -2,5 +2,4 @@
   command = ""
   publish = "src"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+
