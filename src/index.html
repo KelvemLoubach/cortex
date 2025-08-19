@@ -126,6 +126,7 @@
             cursor: pointer;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+            white-space: nowrap;
         }
         
         .btn:hover {
@@ -485,10 +486,9 @@
         }
         
         .chat-container.open {
-            display: flex;
+            display: flex !important;
             opacity: 1;
             transform: translateY(0);
-            animation: slideUp 0.3s ease;
         }
         
         .chat-header {
@@ -765,8 +765,9 @@
                 display: none;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
             }
         }
         
@@ -791,8 +792,13 @@
             }
             
             .back-to-top {
-                bottom: 100px;
+                bottom: 120px;
                 left: 20px;
+            }
+            
+            .chat-btn {
+                bottom: 20px;
+                right: 20px;
             }
         }
         
@@ -802,7 +808,8 @@
             }
             
             .btn {
-                padding: 10px 20px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
             }
             
             .modal-content {
@@ -813,8 +820,14 @@
                 width: 60px;
                 height: 60px;
                 font-size: 1.5rem;
-                bottom: 20px;
-                right: 20px;
+            }
+            
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -990,7 +1003,7 @@
             {
                 id: "automacao_de_processos",
                 title: "Automação de Processos",
-                description: "Transformamos tarefas manuais e repetitivas em processos automáticos que funcionam de forma inteligente sans intervenção humana.",
+                description: "Transformamos tarefas manuais e repetitivas em processos automáticos que funcionam de forma inteligente sem intervenção humana.",
                 howItWorks: "Primeiro, mapeamos os processos atuais da sua empresa para identificar gargalos e tarefas demoradas. Em seguida, criamos 'robôs' de software que executam essas tarefas de forma programada, como preencher formulários, enviar e-mails e gerar relatórios.",
                 benefits: [
                     "Aumento de Produtividade: Tarefas executadas 24/7 sem pausas",
@@ -1005,7 +1018,7 @@
                     "Organização Automática de Notas Fiscais"
                 ],
                 icon: "fas fa-robot",
-                image: "https://res.cloudinary.com/dxdat9dol/image/upload/f_auto,q_auto,w_800/v1755605902/automacao_processos_bnbaxy.png"
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
             },
             {
                 id: "integracao_de_sistemas",
@@ -1025,8 +1038,7 @@
                     "Aplicativo de Pedidos para Vendedores"
                 ],
                 icon: "fas fa-plug",
-                image: "https://res.cloudinary.com/dxdat9dol/image/upload/f_auto,q_auto,w_800/v1755605922/integrar_sistemas_k4b1ju.png
-"
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2070&auto=format&fit=crop"
             },
             {
                 id: "assistentes_virtuais",
@@ -1046,8 +1058,7 @@
                     "Chatbot Interno para Dúvidas"
                 ],
                 icon: "fas fa-comment-dots",
-                image: "https://res.cloudinary.com/dxdat9dol/image/upload/v1755605934/assistentes_virtuais_zvejmc.png
-"
+                image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2070&auto=format&fit=crop"
             },
             {
                 id: "sistemas_sob_medida",
@@ -1067,8 +1078,7 @@
                     "Aplicativo para Vendedores Externos"
                 ],
                 icon: "fas fa-laptop-code",
-                image: "https://res.cloudinary.com/dxdat9dol/image/upload/v1755605932/sistemasob_medida_xiavgq.png
-"
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
             },
             {
                 id: "ia_aplicada",
@@ -1088,7 +1098,7 @@
                     "Monitoramento da Marca nas Redes"
                 ],
                 icon: "fas fa-microchip",
-                image: "https://res.cloudinary.com/dxdat9dol/image/upload/v1755605954/inteligencia_artificial_iri5kv.png"
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
             },
             {
                 id: "tratamento_dados",
@@ -1108,7 +1118,7 @@
                     "Sistema de Backup Automático"
                 ],
                 icon: "fas fa-database",
-                image: "https://res.cloudinary.com/dxdat9dol/image/upload/f_auto,q_auto,w_800/v1755605956/tratamento_dados_lrac6k.png"
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
             }
         ];
         // DOM elements
@@ -1183,7 +1193,7 @@
             });
             
             // Set contact button action
-            contactBtn.href = `#contact?service=${service.id}`;
+            contactBtn.href = `https://wa.me/5533999493748?text=Olá,%20quero%20mais%20informações%20sobre%20${service.title}`;
             
             // Show modal
             modal.classList.add('show');
