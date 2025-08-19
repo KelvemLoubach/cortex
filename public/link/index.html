@@ -86,53 +86,9 @@
   </div>
 
   <script>
-    // ==================== CONFIG ====================
-    const STORAGE_KEY   = 'cortex_lead_done';
-    const STORAGE_TTL_MS =  60 * 60 * 1000; // 5 minutos
     const REDIRECT_URL  = 'https://www.somoscortex.online/link/link.html';
     const LEAD_ENDPOINT = 'https://back-go-cortex.onrender.com/api/lead';
 
-    // ==================== STORAGE c/ EXPIRAÇÃO ====================
-    function setWithExpiry(key, value, ttlMs) {
-      try {
-        const item = {
-          value,
-          expiresAt: Date.now() + ttlMs
-        };
-        localStorage.setItem(key, JSON.stringify(item));
-      } catch (e) {
-        // se o storage estiver cheio/desabilitado, seguimos sem travar a UX
-        console.warn('localStorage indisponível ao gravar:', e);
-      }
-    }
-
-    function getWithExpiry(key) {
-      try {
-        const raw = localStorage.getItem(key);
-        if (!raw) return null;
-        const item = JSON.parse(raw);
-        if (!item || typeof item.expiresAt !== 'number') return null;
-        if (Date.now() > item.expiresAt) {
-          localStorage.removeItem(key);
-          return null;
-        }
-        return item.value;
-      } catch (e) {
-        console.warn('localStorage indisponível ao ler:', e);
-        return null;
-      }
-    }
-
-    // ==================== REDIRECT SE JÁ CONCLUÍDO ====================
-    document.addEventListener('DOMContentLoaded', () => {
-      const done = getWithExpiry(STORAGE_KEY);
-      if (done === true) {
-        // redireciona direto sem exibir o formulário
-        window.location.replace(REDIRECT_URL);
-      }
-    });
-
-    // ==================== FORM SUBMIT ====================
     document.getElementById('clientForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -178,8 +134,6 @@
         return response.json();
       })
       .then(() => {
-        // marca como concluído por 2 dias e redireciona
-        setWithExpiry(STORAGE_KEY, true, STORAGE_TTL_MS);
         document.getElementById('loading').style.display = 'none';
         document.getElementById('successMessage').style.display = 'block';
         document.getElementById('clientForm').reset();
