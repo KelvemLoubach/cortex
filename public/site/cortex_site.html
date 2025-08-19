@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORTEX | Soluções Tecnológicas para Empresas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --secondary: #000000;
+            --accent: #FF9800;
+            --dark: #212121;
+            --light: #f8fafc;
+            --gray: #757575;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(120deg, #FFF3E0 0%, #FBE9E7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .hero-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-img img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .card-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            opacity: 1;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            padding: 25px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .use-case {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+        
+        .use-case:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .use-case h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        /* Chat */
+        .chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .chat-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .chat-container {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-container.open {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideUp 0.3s ease;
+        }
+        
+        .chat-header {
+            padding: 20px;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-header h3 {
+            flex: 1;
+            font-size: 1.2rem;
+        }
+        
+        .close-chat {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-chat:hover {
+            transform: rotate(90deg);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8fafc;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            animation: fadeIn 0.3s;
+        }
+        
+        .message-bot {
+            align-self: flex-start;
+        }
+        
+        .message-user {
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .message-content {
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .message-bot .message-content {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px 18px 18px 4px;
+        }
+        
+        .message-user .message-content {
+            background: var(--primary);
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+        }
+        
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            background: white;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        
+        .chat-input button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .chat-input button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .typing-indicator {
+            display: none;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            width: fit-content;
+            margin-top: 5px;
+        }
+        
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background: var(--gray);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: bounce 1.3s infinite;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 3px 15px rgba(255, 152, 0, 0.4);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .chat-container {
+                width: 90%;
+                right: 5%;
+                height: 70vh;
+                bottom: 90px;
+            }
+            
+            .back-to-top {
+                bottom: 100px;
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .modal-content {
+                max-height: 85vh;
+            }
+            
+            .chat-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>CORTEX</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <a href="https://wa.me/5533999493748?text=Olá,%20quero%20solicitar%20uma%20demonstração!" class="btn">Solicitar Demonstração</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transforme sua empresa com soluções de <span>Inteligência Artificial</span></h1>
+                    <p>Automatize processos, integre sistemas e impulsione resultados com tecnologia de ponta. Soluções personalizadas para empresas que buscam eficiência e inovação.</p>
+                    <a href="https://wa.me/5533999493748?text=Olá,%20quero%20solicitar%20uma%20demonstração!" class="btn">Conheça nossos serviços</a>
+                </div>
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" alt="Tecnologia e Inovação">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossas Soluções</h2>
+                <p>Oferecemos serviços de tecnologia inovadores que impulsionam a eficiência operacional e reduzem custos para empresas de todos os portes.</p>
+            </div>
+            
+            <div class="services-grid" id="services-container">
+                <!-- Services will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal" id="service-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Automação de Processos</h2>
+                <p id="modal-description">Transforme tarefas manuais em processos automáticos inteligentes.</p>
+                <span class="close-modal" id="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="section">
+                    <h3><i class="fas fa-cogs"></i> Como Funciona</h3>
+                    <p id="how-it-works">Primeiro, mapeamos os processos atuais da sua empresa para identificar os gargalos e as tarefas que consomem mais tempo. Em seguida, utilizamos ferramentas tecnológicas para criar 'robôs' de software que executam essas tarefas de forma programada, como preencher formulários, enviar e-mails, gerar relatórios e muito mais.</p>
+                </div>
+                
+                <div class="section">
+                    <h3><i class="fas fa-star"></i> Benefícios</h3>
+                    <ul class="benefits-list" id="benefits-list">
+                        <!-- Benefits will be inserted here -->
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3><i class="fas fa-lightbulb"></i> Casos de Uso</h3>
+                    <div class="use-cases-grid" id="use-cases-grid">
+                        <!-- Use cases will be inserted here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" id="contact-btn">Solicitar mais informações</a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CORTEX</h3>
+                    <p>Soluções tecnológicas inovadoras para transformar sua empresa e impulsionar seus resultados.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Serviços</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Automação de Processos</a></li>
+                        <li><a href="#">Integração de Sistemas</a></li>
+                        <li><a href="#">Assistentes Virtuais</a></li>
+                        <li><a href="#">Sistemas Sob Medida</a></li>
+                        <li><a href="#">Inteligência Artificial</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Pedro Gomes, 187, Ibatiba ES</li>
+                        <li><i class="fas fa-phone"></i> (33) 999493748</li>
+                        <li><i class="fas fa-envelope"></i> contato@CORTEX.com.br</li>
+                        <li><i class="fas fa-clock"></i> Seg-Sex: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 CORTEX Tecnologia. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+    <!-- Chat Button -->
+    <div class="chat-btn" id="chat-btn">
+        <i class="fas fa-comments"></i>
+    </div>
+    
+    <!-- Chat Container -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <h3>Assistente Virtual</h3>
+            <span class="close-chat" id="close-chat">&times;</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message message-bot">
+                <div class="message-content">
+                    Olá! Eu sou o assistente virtual da CORTEX. Como posso te ajudar hoje?
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="typing-indicator" id="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    
+    <!-- Back to top button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script>
+        // Services data from JSON
+        const servicesData = [
+            {
+                id: "automacao_de_processos",
+                title: "Automação de Processos",
+                description: "Transformamos tarefas manuais e repetitivas em processos automáticos que funcionam de forma inteligente sans intervenção humana.",
+                howItWorks: "Primeiro, mapeamos os processos atuais da sua empresa para identificar gargalos e tarefas demoradas. Em seguida, criamos 'robôs' de software que executam essas tarefas de forma programada, como preencher formulários, enviar e-mails e gerar relatórios.",
+                benefits: [
+                    "Aumento de Produtividade: Tarefas executadas 24/7 sem pausas",
+                    "Redução de Custos: Diminui necessidade de mão de obra para tarefas repetitivas",
+                    "Redução de Erros: Processos executados sempre da mesma maneira com alta precisão",
+                    "Foco no Estratégico: Equipe dedicada a atividades mais estratégicas"
+                ],
+                useCases: [
+                    "Conciliação Bancária Automática",
+                    "Emissão Automática de Notas Fiscais",
+                    "Agenda Online para Clientes",
+                    "Organização Automática de Notas Fiscais"
+                ],
+                icon: "fas fa-robot",
+                image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
+            },
+            {
+                id: "integracao_de_sistemas",
+                title: "Integração de Sistemas",
+                description: "Conectamos diversos softwares da sua empresa para que troquem informações automaticamente.",
+                howItWorks: "Utilizamos APIs para criar pontes seguras entre seus sistemas. Ao atualizar uma informação em um sistema, ela é automaticamente refletida nos outros em tempo real.",
+                benefits: [
+                    "Informações Centralizadas: Visão única e completa do negócio",
+                    "Tomada de Decisão Mais Rápida: Acesso a dados confiáveis em tempo real",
+                    "Eficiência Operacional: Reduz tempo gasto com digitação manual",
+                    "Melhora a Experiência do Cliente: Atendimento mais rápido e personalizado"
+                ],
+                useCases: [
+                    "Integração do CRM com WhatsApp",
+                    "Controle de Estoque Integrado",
+                    "Painel de Vendas em Tempo Real",
+                    "Aplicativo de Pedidos para Vendedores"
+                ],
+                icon: "fas fa-plug",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+            },
+            {
+                id: "assistentes_virtuais",
+                title: "Assistentes Virtuais",
+                description: "Chatbots que utilizam inteligência artificial para interagir de forma natural com seus clientes.",
+                howItWorks: "Desenvolvemos assistentes virtuais que usam Processamento de Linguagem Natural para entender o que as pessoas escrevem ou falam e fornecer respostas.",
+                benefits: [
+                    "Atendimento 24/7: Clientes atendidos a qualquer hora",
+                    "Redução da Carga de Trabalho: Resolve dúvidas frequentes automaticamente",
+                    "Respostas em Tempo Real: Reduz tempo de espera do cliente",
+                    "Captação de Leads: Qualifica leads e agenda reuniões"
+                ],
+                useCases: [
+                    "Chatbot no WhatsApp para Primeiras Dúvidas",
+                    "Resposta Automática Fora do Horário",
+                    "Acompanhamento Simples de Pedidos",
+                    "Chatbot Interno para Dúvidas"
+                ],
+                icon: "fas fa-comment-dots",
+                image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop"
+            },
+            {
+                id: "sistemas_sob_medida",
+                title: "Sistemas Sob Medida",
+                description: "Criamos softwares e aplicativos totalmente personalizados para suas necessidades específicas.",
+                howItWorks: "Analisamos suas operações e objetivos, então desenvolvemos uma solução com funcionalidades exatas que você precisa para resolver seus desafios.",
+                benefits: [
+                    "100% Adaptado ao seu Negócio: Solução perfeitamente alinhada aos seus processos",
+                    "Vantagem Competitiva: Funcionalidades únicas que concorrentes não possuem",
+                    "Melhor Custo-Benefício: Economia a longo prazo",
+                    "Integração Perfeita: Conecta-se com outros sistemas existentes"
+                ],
+                useCases: [
+                    "Aplicativo Simples para Orçamentos e Pedidos",
+                    "Painel Básico com Relatórios de Vendas",
+                    "Sistema de Controle de Estoque",
+                    "Aplicativo para Vendedores Externos"
+                ],
+                icon: "fas fa-laptop-code",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+            },
+            {
+                id: "ia_aplicada",
+                title: "Inteligência Artificial Aplicada",
+                description: "Utilizamos IA para analisar dados, encontrar padrões, prever tendências e gerar insights estratégicos.",
+                howItWorks: "A IA analisa grandes volumes de dados e identifica correlações que seriam impossíveis de perceber manualmente, prevendo resultados futuros como demanda de produtos.",
+                benefits: [
+                    "Decisões Baseadas em Dados: Substitui intuição por análises concretas",
+                    "Previsão de Tendências: Antecipa mudanças do mercado",
+                    "Otimização de Processos: Identifica gargalos e sugere melhorias",
+                    "Personalização em Escala: Oferece experiências altamente personalizadas"
+                ],
+                useCases: [
+                    "Previsão de Reabastecimento com IA",
+                    "Otimização de Rotas de Entrega",
+                    "Campanhas de Marketing Segmentadas",
+                    "Monitoramento da Marca nas Redes"
+                ],
+                icon: "fas fa-microchip",
+                image: "https://images.unsplash.com/photo-1677442135722-5fceb00a97d3?q=80&w=1932&auto=format&fit=crop"
+            },
+            {
+                id: "tratamento_dados",
+                title: "Tratamento de Dados",
+                description: "Transformamos dados brutos e desorganizados em informações claras e confiáveis para tomada de decisão.",
+                howItWorks: "O processo envolve limpeza, padronização e centralização dos dados, além da criação de painéis visuais para acompanhamento de indicadores.",
+                benefits: [
+                    "Dados Confiáveis: Informações consistentes em toda empresa",
+                    "Facilidade de Acesso: Informações disponíveis visualmente",
+                    "Visão Clara do Negócio: Acompanhamento de KPIs em tempo real",
+                    "Economia de Tempo: Elimina horas juntando e limpando planilhas"
+                ],
+                useCases: [
+                    "Relatório Mensal de Faturamento e Despesas",
+                    "Painel de Indicadores Financeiros",
+                    "Relatórios de Fluxo de Caixa por E-mail",
+                    "Sistema de Backup Automático"
+                ],
+                icon: "fas fa-database",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+            }
+        ];
+        // DOM elements
+        const servicesContainer = document.getElementById('services-container');
+        const modal = document.getElementById('service-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const howItWorks = document.getElementById('how-it-works');
+        const benefitsList = document.getElementById('benefits-list');
+        const useCasesGrid = document.getElementById('use-cases-grid');
+        const contactBtn = document.getElementById('contact-btn');
+        
+        // Chat elements
+        const chatBtn = document.getElementById('chat-btn');
+        const chatContainer = document.getElementById('chat-container');
+        const closeChat = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        const typingIndicator = document.getElementById('typing-indicator');
+        
+        // Back to top
+        const backToTop = document.getElementById('back-to-top');
+        
+        // Render services cards
+        function renderServices() {
+            servicesData.forEach(service => {
+                const card = document.createElement('div');
+                card.className = 'service-card';
+                card.innerHTML = `
+                    <div class="card-img">
+                        <img src="${service.image}" alt="${service.title}">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="${service.icon}"></i>
+                        </div>
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => openModal(service));
+                servicesContainer.appendChild(card);
+            });
+        }
+        
+        // Open modal with service details
+        function openModal(service) {
+            modalTitle.textContent = service.title;
+            modalDescription.textContent = service.description;
+            howItWorks.textContent = service.howItWorks;
+            
+            // Render benefits
+            benefitsList.innerHTML = '';
+            service.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.textContent = benefit;
+                benefitsList.appendChild(li);
+            });
+            
+            // Render use cases
+            useCasesGrid.innerHTML = '';
+            service.useCases.forEach(useCase => {
+                const useCaseElement = document.createElement('div');
+                useCaseElement.className = 'use-case';
+                useCaseElement.innerHTML = `
+                    <h4>${useCase}</h4>
+                `;
+                useCasesGrid.appendChild(useCaseElement);
+            });
+            
+            // Set contact button action
+            contactBtn.href = `#contact?service=${service.id}`;
+            
+            // Show modal
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close modal
+        function closeModalFunc() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Toggle chat
+        function toggleChat() {
+            chatContainer.classList.toggle('open');
+        }
+        
+        // Send message to API
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+            
+            // Add user message to chat
+            addMessage(message, 'user');
+            userInput.value = '';
+            
+            // Show typing indicator
+            typingIndicator.style.display = 'block';
+            
+            // Get message history
+            const history = [];
+            const messageElements = chatMessages.querySelectorAll('.message');
+            
+            // Limit to last 40 messages
+            const maxMessages = Math.min(messageElements.length, 40);
+            const startIndex = Math.max(0, messageElements.length - maxMessages);
+            
+            for (let i = startIndex; i < messageElements.length; i++) {
+                const messageEl = messageElements[i];
+                const isUser = messageEl.classList.contains('message-user');
+                const content = messageEl.querySelector('.message-content').textContent;
+                
+                history.push({
+                    role: isUser ? 'user' : 'assistant',
+                    content: content,
+                    timestamp: new Date().toISOString()
+                });
+            }
+            
+            try {
+                // Send request to API
+                const response = await fetch('https://back-go-cortex.onrender.com/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        history: history
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao comunicar com o servidor');
+                }
+                
+                const data = await response.json();
+                
+                // Hide typing indicator
+                typingIndicator.style.display = 'none';
+                
+                // Add assistant response to chat
+                addMessage(data.response, 'bot');
+                
+            } catch (error) {
+                console.error('Erro:', error);
+                typingIndicator.style.display = 'none';
+                addMessage('Desculpe, ocorreu um erro ao processar sua mensagem. Por favor, tente novamente mais tarde.', 'bot');
+            }
+        }
+        
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${sender}`;
+            messageDiv.innerHTML = `<div class="message-content">${text}</div>`;
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Back to top functionality
+        function handleBackToTop() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        }
+        
+        // Event listeners
+        closeModal.addEventListener('click', closeModalFunc);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModalFunc();
+        });
+        
+        chatBtn.addEventListener('click', toggleChat);
+        closeChat.addEventListener('click', toggleChat);
+        
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderServices();
+            
+            // Back to top scroll listener
+            window.addEventListener('scroll', handleBackToTop);
+        });
+    </script>
+</body>
+</html>
