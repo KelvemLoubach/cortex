@@ -587,14 +587,15 @@
             background: var(--primary-dark);
         }
         
+        /* =====> CSS CORRIGIDO ABAIXO <===== */
         .typing-indicator {
-            display: none;
-            padding: 10px 15px;
+            display: none; /* Inicia oculto */
+            padding: 12px 18px;
             background: white;
-            border-radius: 18px;
-            border: 1px solid #e2e8f0;
+            border-radius: 18px 18px 18px 4px; /* Mesmo estilo da mensagem do bot */
+            border: 1px solid #e2e8f0;      /* Mesmo estilo da mensagem do bot */
             width: fit-content;
-            margin-top: 5px;
+            margin: 0 20px 10px 20px; /* Margens para alinhar com as mensagens */
         }
         
         .typing-indicator span {
@@ -833,7 +834,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
@@ -850,7 +850,6 @@
             </nav>
         </div>
     </header>
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -865,7 +864,6 @@
             </div>
         </div>
     </section>
-    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
@@ -874,11 +872,9 @@
             </div>
             
             <div class="services-grid" id="services-container">
-                <!-- Services will be dynamically inserted here -->
-            </div>
+                </div>
         </div>
     </section>
-    <!-- Modal -->
     <div class="modal" id="service-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -895,15 +891,13 @@
                 <div class="section">
                     <h3><i class="fas fa-star"></i> Benefícios</h3>
                     <ul class="benefits-list" id="benefits-list">
-                        <!-- Benefits will be inserted here -->
-                    </ul>
+                        </ul>
                 </div>
                 
                 <div class="section">
                     <h3><i class="fas fa-lightbulb"></i> Casos de Uso</h3>
                     <div class="use-cases-grid" id="use-cases-grid">
-                        <!-- Use cases will be inserted here -->
-                    </div>
+                        </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -911,7 +905,6 @@
             </div>
         </div>
     </div>
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -964,12 +957,10 @@
             </div>
         </div>
     </footer>
-    <!-- Chat Button -->
     <div class="chat-btn" id="chat-btn">
         <i class="fas fa-comments"></i>
     </div>
     
-    <!-- Chat Container -->
     <div class="chat-container" id="chat-container">
         <div class="chat-header">
             <h3>Assistente Virtual</h3>
@@ -982,18 +973,20 @@
                 </div>
             </div>
         </div>
-        <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
-            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-        </div>
+        
         <div class="typing-indicator" id="typing-indicator">
             <span></span>
             <span></span>
             <span></span>
         </div>
+
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+
     </div>
     
-    <!-- Back to top button -->
     <div class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
@@ -1222,6 +1215,7 @@
             
             // Show typing indicator
             typingIndicator.style.display = 'block';
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to show indicator if needed
             
             // Get message history
             const history = [];
