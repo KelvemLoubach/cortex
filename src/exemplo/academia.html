@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnold Scholl - Transforme seu corpo, transforme sua vida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ------------------------- */
+        /* --- VARIÁVEIS GLOBAIS --- */
+        /* ------------------------- */
+        :root {
+            --cor-primaria: #ff7b00;
+            --cor-primaria-hover: #e06e00;
+            --cor-fundo: #f8f9fa;
+            --cor-fundo-escuro: #121212;
+            --cor-texto: #343a40;
+            --cor-texto-claro: #f8f9fa;
+            --cor-branco: #ffffff;
+            --sombra-suave: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ------------------------- */
+        /* --- RESET E ESTILOS BASE --- */
+        /* ------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--cor-texto);
+            background-color: var(--cor-branco);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2 span, .logo span, .footer-logo span {
+            color: var(--cor-primaria);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--cor-primaria-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.4);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 600px;
+            margin: -15px auto 50px auto;
+            color: #6c757d;
+        }
+
+        /* ------------------------- */
+        /* --- HEADER --- */
+        /* ------------------------- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--cor-texto);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:not(.btn)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--cor-primaria);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a:hover::after {
+            color: var(--cor-primaria);
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        /* ------------------------- */
+        /* --- HERO SECTION --- */
+        /* ------------------------- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1975&q=80.webp') no-repeat center center/cover;
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 200px 0 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* ------------------------- */
+        /* --- SOBRE --- */
+        /* ------------------------- */
+        .sobre {
+            background-color: var(--cor-branco);
+        }
+        
+        .sobre-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .sobre-imagem {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .sobre-imagem img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+        }
+        
+        /* ------------------------- */
+        /* --- SERVIÇOS --- */
+        /* ------------------------- */
+        .servicos {
+            background-color: var(--cor-fundo);
+        }
+        
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .servico-card {
+            background-color: var(--cor-branco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .servico-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .servico-card h3 {
+            color: var(--cor-primaria);
+            margin: 20px 0 10px;
+        }
+        
+        .servico-icon {
+            color: var(--cor-primaria);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .servico-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+        
+        /* ------------------------- */
+        /* --- PLANOS --- */
+        /* ------------------------- */
+        .planos {
+            background-color: var(--cor-branco);
+        }
+        
+        .planos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            justify-content: center;
+        }
+        
+        .plano-card {
+            background-color: var(--cor-branco);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: var(--sombra-suave);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .plano-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .plano-card.popular {
+            border-color: var(--cor-primaria);
+            transform: scale(1.05);
+        }
+        
+        .plano-card.popular::before {
+            content: "MAIS POPULAR";
+            position: absolute;
+            top: 20px;
+            right: -45px;
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 8px 50px;
+            font-size: 12px;
+            font-weight: 700;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .plano-preco {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--cor-primaria);
+            margin: 20px 0;
+        }
+
+        .plano-preco span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #6c757d;
+        }
+        
+        .plano-beneficios {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .plano-beneficios li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plano-beneficios li:last-child {
+            border-bottom: none;
+        }
+
+        /* ------------------------- */
+        /* --- DEPOIMENTOS --- */
+        /* ------------------------- */
+        .depoimentos {
+            background-color: var(--cor-fundo);
+        }
+        
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .depoimento-card {
+            background-color: var(--cor-branco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--sombra-suave);
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .depoimento-card::before {
+            content: '“';
+            font-family: 'Times New Roman', Times, serif;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 80px;
+            color: var(--cor-primaria);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .depoimento-texto {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .depoimento-autor {
+            display: flex;
+            align-items: center;
+        }
+        
+        .depoimento-avatar img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid var(--cor-primaria);
+        }
+        
+        /* ------------------------- */
+        /* --- LOCALIZAÇÃO --- */
+        /* ------------------------- */
+        .localizacao-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .mapa iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            border: 0;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .info-contato .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            color: var(--cor-primaria);
+            width: 30px;
+            text-align: center;
+        }
+        
+        /* ------------------------- */
+        /* --- CTA (CALL TO ACTION) --- */
+        /* ------------------------- */
+        .cta {
+            background: linear-gradient(to right, var(--cor-primaria), #ff9a44), url('https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80.webp') no-repeat center center/cover;
+            background-blend-mode: multiply;
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta .btn {
+            background-color: var(--cor-branco);
+            color: var(--cor-primaria);
+            box-shadow: none;
+        }
+
+        .cta .btn:hover {
+             background-color: #f0f0f0;
+             color: var(--cor-primaria-hover);
+             transform: translateY(-5px) scale(1.05);
+        }
+        
+        /* ------------------------- */
+        /* --- FOOTER --- */
+        /* ------------------------- */
+        footer {
+            background-color: var(--cor-fundo-escuro);
+            color: var(--cor-texto-claro);
+            padding: 70px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--cor-branco);
+        }
+
+        .footer-info p {
+            color: #adb5bd;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #343a40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--cor-branco);
+            text-decoration: none;
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--cor-primaria);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links h3 {
+            color: var(--cor-primaria);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--cor-primaria);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #343a40;
+            color: #adb5bd;
+        }
+        
+        /* ------------------------- */
+        /* --- RESPONSIVIDADE --- */
+        /* ------------------------- */
+        @media (max-width: 992px) {
+            .sobre-container, .localizacao-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .header-container {
+                padding: 15px;
+                height: 70px;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--cor-branco);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+
+            .plano-card.popular {
+                transform: scale(1);
+            }
+
+            .plano-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container container">
+            <a href="#" class="logo">ARNOLD <span>SCHOLL</span></a>
+            <div class="mobile-menu">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                    <li><a href="#contato" class="btn">Matricule-se</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Transforme seu corpo, transforme sua vida</h1>
+                <p>Na Arnold Scholl, oferecemos a estrutura e o suporte necessários para você alcançar seus objetivos fitness e ter uma vida mais saudável.</p>
+                <a href="#planos" class="btn">Comece agora</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="sobre">
+            <div class="container">
+                <h2 class="text-center">Sobre a <span>Arnold Scholl</span></h2>
+                <p class="section-subtitle">Conheça a nossa história de mais de uma década dedicada à saúde e bem-estar.</p>
+                <div class="sobre-container">
+                    <div class="sobre-texto">
+                        <p>Há mais de 10 anos no mercado, a Arnold Scholl é referência em excelência e qualidade no segmento fitness. Nossa missão é proporcionar aos nossos alunos saúde, bem-estar e autoestima através de exercícios físicos orientados.</p>
+                        <p>Contamos com uma estrutura moderna, equipamentos de última geração e uma equipe de profissionais altamente qualificados para te auxiliar em todos os momentos.</p>
+                        <p>Na Arnold Scholl, você não encontra apenas uma academia, mas sim um estilo de vida que valoriza seu bem-estar e sua evolução constante.</p>
+                        <br>
+                        <a href="#localizacao" class="btn">Venha nos visitar</a>
+                    </div>
+                    <div class="sobre-imagem">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80.webp" alt="Interior da academia Arnold Scholl com equipamentos modernos">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="servicos">
+            <div class="container">
+                <h2 class="text-center">Nossos <span>Serviços</span></h2>
+                <p class="section-subtitle">Oferecemos uma variedade de serviços para atender todos os seus objetivos fitness com máxima eficiência.</p>
+                
+                <div class="servicos-grid">
+                    <div class="servico-card">
+                        <span class="servico-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.57,14.86L22,13.43L20.57,12L17,15.57L8.43,7L12,3.43L10.57,2L9.14,3.43L7.71,2L5.57,4.14L4.14,2.71L2.71,4.14L4.14,5.57L2,7.71L3.43,9.14L2,10.57L3.43,12L7,8.43L15.57,17L12,20.57L13.43,22L14.86,20.57L16.29,22L18.43,19.86L19.86,21.29L21.29,19.86L19.86,18.43L22,16.29L20.57,14.86Z" /></svg>
+                        </span>
+                        <h3>Musculação</h3>
+                        <p>Área completa com equipamentos de última geração para seu treino de força e resistência.</p>
+                    </div>
+                    
+                    <div class="servico-card">
+                         <span class="servico-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4C14.24,4 16.17,5.54 16.75,7.59L14.88,8.34C14.5,7.3 13.36,6.5 12,6.5C10.64,6.5 9.5,7.3 9.12,8.34L7.25,7.59C7.83,5.54 9.76,4 12,4M7.25,16.41C7.83,18.46 9.76,20 12,20C14.24,20 16.17,18.46 16.75,16.41L14.88,15.66C14.5,16.7 13.36,17.5 12,17.5C10.64,17.5 9.5,16.7 9.12,15.66L7.25,16.41M18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12Z" /></svg>
+                        </span>
+                        <h3>Aulas Groupais</h3>
+                        <p>Zumba, spinning, pilates, yoga e muitas outras aulas para variar seu treino.</p>
+                    </div>
+                    
+                    <div class="servico-card">
+                         <span class="servico-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5,12A2.5,2.5 0 0,0 19,9.5A2.5,2.5 0 0,0 16.5,7A2.5,2.5 0 0,0 14,9.5A2.5,2.5 0 0,0 16.5,12M9,11A1,1 0 0,0 10,10A1,1 0 0,0 9,9A1,1 0 0,0 8,10A1,1 0 0,0 9,11M16,14C13.9,14 12.1,14.6 10.7,15.6L12.9,19.9L14.3,19.3L12.5,15.9C13.5,15.2 14.7,14.7 16,14.7C16.3,14.7 16.5,14.8 16.8,14.8L17.2,12.8C16.8,12.7 16.4,12.7 16,12.7C15.3,12.7 14.6,12.8 14,13C13.4,11.8 12.3,11 11,11C9.3,11 8,12.3 8,14C8,14.3 8.1,14.7 8.2,15L6.2,15.4C6.1,15 6,14.5 6,14A6,6 0 0,1 12,8C15,8 17.4,10 18,12.8L19.4,12.4L18.5,8.4L20.4,8.1L21.5,13.1L19,13.7C18.7,15.2 17.5,16.4 16,16.7V22H14V16.7C13.5,16.9 13.1,17.2 12.7,17.5L14,21H12L9,15.2C8.8,15.4 8.6,15.7 8.4,15.9L10,18H8L5,13L5.4,11L7.4,11.4C7.6,10.6 8.2,10 9,9.7V7H11V9.7C11.5,9.6 12,9.5 12.5,9.5C13,9.5 13.5,9.6 13.9,9.7L14.8,6.1L16.7,6.6L15.9,10C16.2,10 16.5,10.1 16.8,10.2L17.6,6.6L19.5,7.1L18.7,10.7C19.5,11.2 20.2,12 20.7,12.9L22.6,12.5L22.2,10.5L20.2,10.9L19.6,8.2L17.7,7.8L18.1,9.8C17.6,9.5 17.1,9.3 16.5,9.3A4.5,4.5 0 0,0 12,13.8C12,15.1 12.3,16.2 13,17.2L11,21.2L10.3,21.8L11.7,17.9C10,17.2 9,15.7 9,14A3,3 0 0,1 12,11C12.5,11 12.9,11.1 13.3,11.2L13.1,10.5C12.8,10.3 12.4,10.2 12,10.2A5,5 0 0,0 7,15.2C7,15.5 7,15.8 7.1,16.1L8.8,15.7C8.7,15.5 8.7,15.2 8.7,15C8.7,13.5 9.7,12.3 11,12C11.3,13.2 12.4,14 13.7,14C14.2,14 14.7,13.9 15.1,13.7L15.4,15.1C14.7,15.5 14,16 13.5,16.6L15.5,20.6L15.7,20.1L13.7,16.1C14,15.9 14.3,15.8 14.6,15.6L13.2,19.5L13.5,19.8L14.9,15.9C15.3,15.7 15.6,15.5 16,15.4V20H17V15.4C18,15.1 18.8,14.3 19.1,13.4L18,13.8L17.6,11.8L19.6,11.4L20,13.4C19.3,14.5 18,15.5 16.5,15.7C16.8,15.7 17,15.6 17.3,15.5L16,19H18L21,13Z" /></svg>
+                        </span>
+                        <h3>Acompanhamento Personalizado</h3>
+                        <p>Professores especializados para te orientar e ajudar a alcançar seus objetivos.</p>
+                    </div>
+                    
+                    <div class="servico-card">
+                         <span class="servico-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5,15.5C16.5,18.26 14.26,20.5 11.5,20.5C8.74,20.5 6.5,18.26 6.5,15.5C6.5,13.43 7.8,11.66 9.53,10.93C9.44,11.29 9.5,11.61 9.5,12A1.5,1.5 0 0,0 11,13.5A1.5,1.5 0 0,0 12.5,12C12.5,11.61 12.56,11.29 12.47,10.93C14.2,11.66 15.5,13.43 15.5,15.5M11.5,3.5C10.76,3.5 10.06,3.67 9.47,4.07C9.56,4.39 9.5,4.71 9.5,5A1.5,1.5 0 0,0 8,3.5A1.5,1.5 0 0,0 6.5,5C6.5,5.74 7.05,6.4 7.76,6.47C7.38,7.62 7.09,8.84 6.9,10.11C4.7,9.91 3,8.14 3,6A3,3 0 0,1 6,3A3,3 0 0,1 9,6C9,6.14 8.97,6.28 8.95,6.43C9.75,5.25 10.57,4.09 11.5,3.5M17,6A3,3 0 0,1 20,3A3,3 0 0,1 23,6C23,8.14 21.3,9.91 19.1,10.11C18.91,8.84 18.62,7.62 18.24,6.47C18.95,6.4 19.5,5.74 19.5,5A1.5,1.5 0 0,0 18,3.5A1.5,1.5 0 0,0 16.5,5C16.5,5.29 16.44,5.61 16.53,5.93C15.94,5.67 15.24,5.5 14.5,5.5C13.84,5.5 13.17,5.66 12.55,5.91C12.56,5.61 12.5,5.29 12.5,5A1.5,1.5 0 0,0 11,3.5A1.5,1.5 0 0,0 9.5,5C9.5,5.29 9.44,5.61 9.53,5.93C8.75,6.5 8.04,7.14 7.42,7.84C8.78,8.4 10.06,8.83 11.5,9.03L12.5,9.03C13.94,8.83 15.22,8.4 16.58,7.84C15.96,7.14 15.25,6.5 14.47,5.93C14.56,5.61 14.5,5.29 14.5,5A1.5,1.5 0 0,0 13,3.5A1.5,1.5 0 0,0 11.5,5C11.5,5.29 11.44,5.61 11.53,5.93C11.5,5.95 11.5,5.97 11.5,6C12.89,6 14.1,6.54 15,7.32C15.9,6.54 17.11,6 18.5,6C18.5,5.97 18.5,5.95 18.47,5.93C18.56,5.61 18.5,5.29 18.5,5A1.5,1.5 0 0,0 17,3.5A1.5,1.5 0 0,0 15.5,5C15.5,5.74 16.05,6.4 16.76,6.47C16.38,7.62 16.09,8.84 15.9,10.11C16.62,10.28 17.29,10.58 17.88,11C18.17,10.07 18.56,9.19 19,8.37C18.04,7.83 17.17,7.38 16.34,7.02C17.3,6.3 18.14,5.43 18.78,4.4C19.46,4.91 20,5.62 20,6.5A1.5,1.5 0 0,1 18.5,8A1.5,1.5 0 0,1 17,6.5C17,6.36 17.03,6.22 17.08,6.09C14.29,7.5 11.5,7.5 8.92,6.09C8.97,6.22 9,6.36 9,6.5A1.5,1.5 0 0,1 7.5,8A1.5,1.5 0 0,1 6,6.5C6,5.62 6.54,4.91 7.22,4.4C7.86,5.43 8.7,6.3 9.66,7.02C8.83,7.38 7.96,7.83 7,8.37C7.44,9.19 7.83,10.07 8.12,11C8.71,10.58 9.38,10.28 10.1,10.11C10.09,9.44 10.12,8.78 10.19,8.12C10.61,8.35 11.05,8.5 11.5,8.5C11.95,8.5 12.39,8.35 12.81,8.12C12.88,8.78 12.91,9.44 12.9,10.11C13.62,10.28 14.29,10.58 14.88,11C15.17,10.07 15.56,9.19 16,8.37C15.04,7.83 14.17,7.38 13.34,7.02C14.3,6.3 15.14,5.43 15.78,4.4C16.46,4.91 17,5.62 17,6.5Z" /></svg>
+                        </span>
+                        <h3>Piscina</h3>
+                        <p>Área aquática com piscina semiolímpica para natação e hidroginástica.</p>
+                    </div>
+
+                    <div class="servico-card">
+                        <span class="servico-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16,2H8A3,3 0 0,0 5,5V19A3,3 0 0,0 8,22H16A3,3 0 0,0 19,19V5A3,3 0 0,0 16,2M8,4H16A1,1 0 0,1 17,5V19A1,1 0 0,1 16,20H8A1,1 0 0,1 7,19V5A1,1 0 0,1 8,4M15,6H9V7H15V6M15,8H9V9H15V8M11,10H9V11H11V10Z" /></svg>
+                        </span>
+                        <h3>Consultoria Nutricional</h3>
+                        <p>Planos alimentares personalizados para potencializar seus resultados.</p>
+                    </div>
+
+                    <div class="servico-card">
+                        <span class="servico-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,3L1,9L12,15L23,9L12,3M5,10.25L12,14.08L19,10.25V15.75L12,19.58L5,15.75V10.25Z" /></svg>
+                        </span>
+                        <h3>Cardio</h3>
+                        <p>Esteiras, bicicletas e elípticos modernos para melhorar seu condicionamento cardiovascular.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos" class="planos">
+            <div class="container">
+                <h2 class="text-center">Nossos <span>Planos</span></h2>
+                <p class="section-subtitle">Escolha o plano que melhor se adapta aos seus objetivos e ao seu bolso.</p>
+                
+                <div class="planos-grid">
+                    <div class="plano-card">
+                        <h3>Plano Básico</h3>
+                        <div class="plano-preco">R$ 89<span>,90/mês</span></div>
+                        <ul class="plano-beneficios">
+                            <li>Acesso à musculação</li>
+                            <li>Acesso à área de cardio</li>
+                            <li>1 aula groupal por semana</li>
+                            <li>Área de locker</li>
+                            <li>-</li>
+                            <li>-</li>
+                        </ul>
+                        <a href="#contato" class="btn">Assinar agora</a>
+                    </div>
+                    
+                    <div class="plano-card popular">
+                        <h3>Plano Premium</h3>
+                        <div class="plano-preco">R$ 129<span>,90/mês</span></div>
+                        <ul class="plano-beneficios">
+                            <li>Acesso à musculação</li>
+                            <li>Acesso à área de cardio</li>
+                            <li>Aulas groupais ilimitadas</li>
+                            <li>Área de locker</li>
+                            <li>Acesso à piscina</li>
+                            <li>1 avaliação física por mês</li>
+                        </ul>
+                        <a href="#contato" class="btn">Assinar agora</a>
+                    </div>
+                    
+                    <div class="plano-card">
+                        <h3>Plano Black</h3>
+                        <div class="plano-preco">R$ 199<span>,90/mês</span></div>
+                        <ul class="plano-beneficios">
+                            <li>Acesso à musculação e cardio</li>
+                            <li>Aulas groupais ilimitadas</li>
+                            <li>Acesso à piscina</li>
+                            <li>Avaliações físicas mensais</li>
+                            <li>Consultoria nutricional</li>
+                            <li>Leve um amigo nos fins de semana</li>
+                        </ul>
+                        <a href="#contato" class="btn">Assinar agora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="depoimentos">
+            <div class="container">
+                <h2 class="text-center">O que nossos <span>alunos</span> dizem</h2>
+                <p class="section-subtitle">Veja os depoimentos de quem já faz parte da família Arnold Scholl.</p>
+                
+                <div class="depoimentos-grid">
+                    <div class="depoimento-card">
+                        <div class="depoimento-texto">
+                            "Treino na Arnold Scholl há 2 anos e foi a melhor decisão que tomei. Perdi 18kg, ganhei disposição e autoestima. Os professores são incríveis!"
+                        </div>
+                        <div class="depoimento-autor">
+                            <div class="depoimento-avatar">
+                               <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80.webp" alt="Foto de Carlos Silva">
+                            </div>
+                            <div>
+                                <h4>Carlos Silva</h4>
+                                <p>Aluno há 2 anos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="depoimento-card">
+                        <div class="depoimento-texto">
+                            "Estrutura impecável, equipamentos modernos e professores sempre dispostos a ajudar. Academia completa para quem leva treino a sério!"
+                        </div>
+                        <div class="depoimento-autor">
+                             <div class="depoimento-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80.webp" alt="Foto de Juliana Santos">
+                             </div>
+                            <div>
+                                <h4>Juliana Santos</h4>
+                                <p>Aluna há 1 ano</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="depoimento-card">
+                        <div class="depoimento-texto">
+                            "Atendimento personalizado e planos de treino que realmente funcionam. Em 6 meses já alcancei resultados que não consegui em 2 anos em outras academias."
+                        </div>
+                        <div class="depoimento-autor">
+                             <div class="depoimento-avatar">
+                                 <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80.webp" alt="Foto de Ricardo Oliveira">
+                             </div>
+                            <div>
+                                <h4>Ricardo Oliveira</h4>
+                                <p>Aluno há 6 meses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="localizacao" class="localizacao">
+            <div class="container">
+                <h2 class="text-center">Nossa <span>Localização</span></h2>
+                <p class="section-subtitle">Venha nos fazer uma visita e conhecer nossa estrutura de perto.</p>
+                
+                <div class="localizacao-container">
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.145833593952!2d-46.65882338502213!3d-23.56291928468164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1693005898394!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="info-contato">
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Av. Paulista, 1000 - Bela Vista, São Paulo - SP</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🕒</div>
+                            <div>
+                                <h4>Horário de Funcionamento</h4>
+                                <p>Segunda a sexta: 5h às 23h<br>Sábados: 7h às 20h<br>Domingos: 8h às 16h</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div>
+                                <h4>Telefone</h4>
+                                <p>(11) 3456-7890</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div>
+                                <h4>E-mail</h4>
+                                <p>contato@arnoldscholl.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="cta">
+            <div class="container">
+                <h2>Pronto para transformar seu corpo?</h2>
+                <p>Junte-se à família Arnold Scholl hoje mesmo e comece sua jornada rumo a uma vida mais saudável e feliz.</p>
+                <a href="#planos" class="btn">Fazer matrícula</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">ARNOLD <span>SCHOLL</span></div>
+                    <p>Há mais de 10 anos transformando vidas através do fitness e qualidade de vida.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.81C10.44 7.31 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.73,18.78 17.93,18.84C17.13,18.91 16.44,18.94 15.84,18.94L15,19C12.81,19 11.2,18.84 10.17,18.56C9.27,18.31 8.69,17.73 8.44,16.83C8.31,16.36 8.22,15.73 8.16,14.93C8.09,14.13 8.06,13.44 8.06,12.84L8,12C8,9.81 8.16,8.2 8.44,7.17C8.69,6.27 9.27,5.69 10.17,5.44C11.2,5.16 12.81,5 15,5L15.84,5.06C16.44,5.06 17.13,5.09 17.93,5.16C18.73,5.22 19.36,5.31 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#sobre">Sobre nós</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#localizacao">Localização</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Horário de Funcionamento</h3>
+                    <ul style="color: #adb5bd;">
+                        <li>Segunda a sexta: 5h às 23h</li>
+                        <li>Sábados: 7h às 20h</li>
+                        <li>Domingos: 8h às 16h</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contato</h3>
+                    <ul style="color: #adb5bd;">
+                        <li>Av. Paulista, 1000 - São Paulo/SP</li>
+                        <li>(11) 3456-7890</li>
+                        <li>contato@arnoldscholl.com.br</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arnold Scholl Academia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80; // Altura do header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar menu mobile após clique
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
