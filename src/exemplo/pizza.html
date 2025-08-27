@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di Nápoli - São Leopoldo (DEMO)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+        
+        .search-bar i {
+            cursor: pointer;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px;
+            width: 200px;
+            outline: none;
+        }
+        
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .header-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .header-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Sidebar (Menu e Carrinho) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px; /* Largura aumentada */
+            width: 320px;
+            height: 100vh;
+            background: white;
+            z-index: 200;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+            transition: right 0.35s ease;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar.open {
+            right: 0;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .close-sidebar {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .sidebar-menu a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .sidebar-menu a:hover {
+            color: #d32f2f;
+        }
+
+        /* Estilos do Carrinho */
+        .cart-items {
+            flex-grow: 1;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #d32f2f;
+            margin-right: 15px;
+        }
+        .cart-item-info h4 {
+            margin: 0 0 5px;
+        }
+        .cart-item-info p {
+            margin: 0;
+            color: #666;
+        }
+        .cart-footer {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .checkout-btn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .checkout-btn:hover {
+            background: #b71c1c;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 150;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .status-bar {
+            background: #ffeb3b;
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .schedule-btn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .schedule-btn:hover {
+            background: #b71c1c;
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 160px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: #d32f2f;
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .category-content p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Página de Produto (oculta por padrão) */
+        #product-page {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .back-btn {
+            background: #eee;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        .back-btn:hover {
+            background: #ddd;
+        }
+        #product-details {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Modal de Horário */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            z-index: 300;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-ok-btn {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .modal-ok-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .search-bar input { width: 150px; }
+            .logo span { display: none; }
+            .logo i { margin-right: 0; font-size: 28px; }
+        }
+        
+        @media (max-width: 480px) {
+            .search-bar { display: none; }
+            .header-actions { gap: 10px; }
+            .categories { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo" id="logo-btn">
+                <i class="fas fa-pizza-slice"></i>
+                <span>Di Nápoli</span>
+            </div>
+            
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="fas fa-search" id="search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Pesquisar produtos...">
+                </div>
+                
+                <button class="header-btn" id="hours-btn">
+                    <i class="far fa-clock"></i>
+                </button>
+                
+                <button class="header-btn" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                
+                <button class="header-btn" id="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="menu-sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="close-sidebar" id="close-menu-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="#"><i class="fas fa-utensils"></i> Cardápio</a></li>
+            <li><a href="#"><i class="fas fa-percent"></i> Promoções</a></li>
+            <li><a href="#"><i class="fas fa-store"></i> Nossas Lojas</a></li>
+            <li><a href="#"><i class="fas fa-history"></i> Histórico</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> Minha Conta</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> Contato</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Carrinho -->
+    <div class="sidebar" id="cart-sidebar">
+        <div class="sidebar-header">
+            <h2>Meu Carrinho</h2>
+            <button class="close-sidebar" id="close-cart-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items">
+            <!-- Item de exemplo 1 -->
+            <div class="cart-item">
+                <div class="cart-item-img"><i class="fas fa-pepper-hot"></i></div>
+                <div class="cart-item-info">
+                    <h4>Pizza Calabresa</h4>
+                    <p>R$ 45,00</p>
+                </div>
+            </div>
+            <!-- Item de exemplo 2 -->
+            <div class="cart-item">
+                <div class="cart-item-img"><i class="fas fa-wine-glass-alt"></i></div>
+                <div class="cart-item-info">
+                    <h4>Refrigerante 2L</h4>
+                    <p>R$ 10,00</p>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <h3>Total: R$ 55,00</h3>
+            <button class="checkout-btn">Finalizar Pedido</button>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Conteúdo Principal -->
+    <div class="container" id="main-container">
+        <div class="status-bar">
+            <p>Estamos fechados no momento, mas você pode agendar seu pedido!</p>
+            <button class="schedule-btn" id="schedule-btn">Agendar Pedido</button>
+        </div>
+        
+        <h2>Nossos Produtos</h2>
+        <div class="categories">
+            <!-- Cards de produtos aqui -->
+            <div class="category-card" data-product-name="Pizzas">
+                <div class="category-img"><i class="fas fa-pizza-slice"></i></div>
+                <div class="category-content"><h3>Pizzas</h3><p>Sabores tradicionais, especiais e bordas recheadas</p></div>
+            </div>
+            <div class="category-card" data-product-name="Lanches">
+                <div class="category-img"><i class="fas fa-hamburger"></i></div>
+                <div class="category-content"><h3>Lanches</h3><p>Hambúrgueres, sanduíches e porções</p></div>
+            </div>
+            <div class="category-card" data-product-name="Massas">
+                <div class="category-img"><i class="fas fa-bacon"></i></div>
+                <div class="category-content"><h3>Massas</h3><p>Espaguete, lasanha, nhoque e outras massas</p></div>
+            </div>
+            <div class="category-card" data-product-name="Bebidas">
+                <div class="category-img"><i class="fas fa-wine-glass-alt"></i></div>
+                <div class="category-content"><h3>Bebidas</h3><p>Refrigerantes, sucos, vinhos e cervejas</p></div>
+            </div>
+            <div class="category-card" data-product-name="Sobremesas">
+                <div class="category-img"><i class="fas fa-ice-cream"></i></div>
+                <div class="category-content"><h3>Sobremesas</h3><p>Sorvetes, tortas e doces caseiros</p></div>
+            </div>
+            <div class="category-card" data-product-name="Saladas">
+                <div class="category-img"><i class="fas fa-carrot"></i></div>
+                <div class="category-content"><h3>Saladas</h3><p>Saladas frescas e molhos especiais</p></div>
+            </div>
+        </div>
+        
+        <h2>Pizzas Especiais</h2>
+        <div class="categories">
+            <div class="category-card" data-product-name="Pizza Quatro Queijos">
+                <div class="category-img" style="background-color: #ffe0b2;"><i class="fas fa-cheese"></i></div>
+                <div class="category-content"><h3>Quatro Queijos</h3><p>Mussarela, gorgonzola, parmesão e provolone</p></div>
+            </div>
+            <div class="category-card" data-product-name="Pizza Calabresa">
+                <div class="category-img" style="background-color: #ffcdd2;"><i class="fas fa-pepper-hot"></i></div>
+                <div class="category-content"><h3>Calabresa</h3><p>Calabresa fatiada, cebola e azeitonas</p></div>
+            </div>
+            <div class="category-card" data-product-name="Pizza Vegetariana">
+                <div class="category-img" style="background-color: #c8e6c9;"><i class="fas fa-leaf"></i></div>
+                <div class="category-content"><h3>Vegetariana</h3><p>Berinjela, brócolis, tomate seco e mussarela</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Detalhes do Produto -->
+    <div class="container" id="product-page">
+        <button class="back-btn" id="back-to-main-btn"><i class="fas fa-arrow-left"></i> Voltar</button>
+        <div id="product-details">
+            <h1 id="product-title">Nome do Produto</h1>
+            <p>Esta é a página de detalhes do produto. Aqui você pode adicionar mais informações, opções de tamanho, ingredientes e um botão "Adicionar ao Carrinho".</p>
+            <!-- Conteúdo de exemplo -->
+        </div>
+    </div>
+    
+    <!-- Modal de Horário -->
+    <div class="modal" id="hours-modal">
+        <div class="modal-header">
+            <h2>Horário de Atendimento</h2>
+            <button class="close-modal" id="close-hours-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-content">
+            <p><strong>Segunda a Quinta:</strong> 18h às 23h</p>
+            <p><strong>Sexta e Sábado:</strong> 18h às 00h</p>
+            <p><strong>Domingo:</strong> 18h às 22h</p>
+            <p class="modal-ok-btn" id="ok-hours-modal"><strong>OK</strong></p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Di Nápoli - São Leopoldo</h3>
+                <p>As melhores pizzas da região, feitas com ingredientes de qualidade e receitas tradicionais.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-phone"></i> (51) 3456-7890</p>
+                <p><i class="fas fa-envelope"></i> contato@dinapoli.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Independência, 123 - Centro, São Leopoldo</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <p>
+                    <a href="#" style="color: #ccc; margin-right: 15px;"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#" style="color: #ccc; margin-right: 15px;"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#" style="color: #ccc;"><i class="fab fa-whatsapp fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Di Nápoli Pizzaria - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Seleção de Elementos ---
+            const overlay = document.getElementById('overlay');
+            
+            // Menu
+            const menuBtn = document.getElementById('menu-btn');
+            const menuSidebar = document.getElementById('menu-sidebar');
+            const closeMenuSidebar = document.getElementById('close-menu-sidebar');
+
+            // Carrinho
+            const cartBtn = document.getElementById('cart-btn');
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const closeCartSidebar = document.getElementById('close-cart-sidebar');
+
+            // Modal de Horário
+            const hoursBtn = document.getElementById('hours-btn');
+            const hoursModal = document.getElementById('hours-modal');
+            const closeHoursModal = document.getElementById('close-hours-modal');
+            const okHoursModal = document.getElementById('ok-hours-modal');
+            
+            // Navegação de Página
+            const mainContainer = document.getElementById('main-container');
+            const productPage = document.getElementById('product-page');
+            const backToMainBtn = document.getElementById('back-to-main-btn');
+            const categoryCards = document.querySelectorAll('.category-card');
+            const productTitle = document.getElementById('product-title');
+
+            // --- Funções Genéricas ---
+            const openSidebar = (sidebar) => {
+                sidebar.classList.add('open');
+                overlay.classList.add('active');
+            };
+
+            const closeAllSidebars = () => {
+                menuSidebar.classList.remove('open');
+                cartSidebar.classList.remove('open');
+                if (hoursModal.style.display !== 'block') {
+                    overlay.classList.remove('active');
+                }
+            };
+            
+            const openModal = (modal) => {
+                modal.style.display = 'block';
+                overlay.classList.add('active');
+            };
+
+            const closeModal = (modal) => {
+                modal.style.display = 'none';
+                if (!menuSidebar.classList.contains('open') && !cartSidebar.classList.contains('open')) {
+                    overlay.classList.remove('active');
+                }
+            };
+
+            // --- Event Listeners ---
+
+            // Sidebars
+            menuBtn.addEventListener('click', () => openSidebar(menuSidebar));
+            cartBtn.addEventListener('click', () => openSidebar(cartSidebar));
+            closeMenuSidebar.addEventListener('click', closeAllSidebars);
+            closeCartSidebar.addEventListener('click', closeAllSidebars);
+            
+            // Modal
+            hoursBtn.addEventListener('click', () => openModal(hoursModal));
+            closeHoursModal.addEventListener('click', () => closeModal(hoursModal));
+            okHoursModal.addEventListener('click', () => closeModal(hoursModal));
+            
+            // Overlay para fechar tudo
+            overlay.addEventListener('click', () => {
+                closeAllSidebars();
+                closeModal(hoursModal);
+            });
+
+            // Navegação para página de produto
+            categoryCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const productName = card.dataset.productName;
+                    productTitle.innerText = productName;
+                    
+                    mainContainer.style.display = 'none';
+                    productPage.style.display = 'block';
+                    window.scrollTo(0, 0);
+                });
+            });
+
+            // Botão de voltar
+            backToMainBtn.addEventListener('click', () => {
+                productPage.style.display = 'none';
+                mainContainer.style.display = 'block';
+            });
+
+            // --- Funcionalidades de Demonstração (Simulações) ---
+            document.getElementById('schedule-btn').addEventListener('click', () => {
+                alert('Funcionalidade de agendamento de pedido em desenvolvimento.');
+            });
+
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert(`Navegando para: ${link.innerText.trim()}`);
+                    closeAllSidebars();
+                });
+            });
+
+            document.getElementById('logo-btn').addEventListener('click', () => {
+                if (productPage.style.display === 'block') {
+                    productPage.style.display = 'none';
+                    mainContainer.style.display = 'block';
+                }
+                window.scrollTo(0, 0);
+            });
+            
+            document.querySelector('.checkout-btn').addEventListener('click', () => {
+                alert('Redirecionando para a página de pagamento!');
+            });
+        });
+    </script>
+</body>
+</html>
