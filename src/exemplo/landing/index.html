@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Modernos</title>
+    <style>
+        /* Importando uma fonte moderna do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* --- Reset e Estilos Globais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212; /* Fundo preto/cinza escuro */
+            color: #ffffff;
+            /* Usamos Flexbox para centralizar o container principal */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Evita barras de rolagem desnecessárias */
+        }
+
+        /* --- Container dos Cards --- */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Espaçamento entre os cards */
+            padding: 20px;
+            flex-wrap: wrap; /* Permite que os cards quebrem a linha em telas menores */
+        }
+
+        /* --- Estilo Individual do Card --- */
+        .card {
+            position: relative; /* Necessário para o pseudo-elemento ::before */
+            width: 320px;
+            height: 450px;
+            background-color: #1e1e1e; /* Cor do card, um pouco mais clara que o fundo */
+            border-radius: 20px;
+            padding: 40px;
+            text-decoration: none; /* Remove o sublinhado do link */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Alinha o conteúdo na parte de baixo */
+            overflow: hidden; /* Garante que o brilho não vaze quando não estiver ativo */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            
+            /* A transição suave é a chave para o efeito moderno */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* --- O EFEITO MODERNO DE BRILHO (A MÁGICA ACONTECE AQUI) --- */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 107, 5, 0.3) 0%, rgba(255, 107, 5, 0) 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+            z-index: 1; /* Fica abaixo do conteúdo */
+        }
+
+        /* --- INTERAÇÃO AO PASSAR O MOUSE --- */
+        .card:hover {
+            transform: translateY(-15px); /* Eleva o card */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover::before {
+            width: 400px; /* Aumenta o tamanho do brilho */
+            height: 400px;
+            opacity: 1; /* Torna o brilho visível */
+        }
+
+        /* --- Conteúdo do Card --- */
+        .card-content {
+            position: relative; /* Garante que o conteúdo fique acima do brilho */
+            z-index: 2;
+            /* Efeito de vidro fosco para legibilidade sobre o brilho */
+            backdrop-filter: blur(2px); 
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(30, 30, 30, 0.2); /* Fundo levemente transparente */
+        }
+
+        .card h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .card .go-to {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #ff6b05; /* Laranja vibrante */
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .go-to {
+            transform: translateX(5px); /* Move a seta para a direita no hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+
+        <a href="https://instadist-3zlxrvhf2-kelvemloubachs-projects.vercel.app/" class="card">
+            <div class="card-content">
+                <h2>Projeto Atomação instagram</h2>
+                <p>Landing page moderna, alta performance!</p>
+                <span class="go-to">Acessar Projeto &rarr;</span>
+            </div>
+        </a>
+
+        <a href="https://acheiteste-3ghf3fv5x-kelvemloubachs-projects.vercel.app/" class="card">
+            <div class="card-content">
+                <h2>Projeto AcheinoZap</h2>
+                <p>Landing page otimizada, que transmite a indentidade do negócio!</p>
+                <span class="go-to">Acessar Projeto  &rarr;</span>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
