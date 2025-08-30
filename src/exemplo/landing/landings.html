@@ -39,10 +39,10 @@
             width: 100%;
             max-width: 320px;
             height: auto;
-            min-height: 350px;
+            min-height: 320px;
             background-color: #1e1e1e;
             border-radius: 20px;
-            padding: 30px 25px;
+            padding: 25px 20px;
             text-decoration: none;
             color: #ffffff;
             display: flex;
@@ -69,8 +69,8 @@
         }
 
         .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
         .card:hover::before {
@@ -83,24 +83,24 @@
             position: relative;
             z-index: 2;
             backdrop-filter: blur(2px);
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 12px;
             background: rgba(30, 30, 30, 0.2);
         }
 
         .card h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 1.6em;
+            margin-bottom: 8px;
         }
 
         .card p {
-            font-size: 1em;
-            line-height: 1.6;
+            font-size: 0.95em;
+            line-height: 1.4;
             color: rgba(255, 255, 255, 0.8);
         }
 
         .card .go-to {
-            margin-top: 20px;
+            margin-top: 15px;
             font-weight: 600;
             color: #ff6b05;
             display: inline-block;
@@ -114,41 +114,42 @@
         /* --- Ajustes responsivos para telas menores --- */
         @media (max-width: 768px) {
             .card-container {
-                gap: 20px;
+                gap: 15px;
             }
 
             .card {
-                max-width: 90%;
-                min-height: 300px;
-                padding: 20px;
+                max-width: 80%;
+                min-height: 260px;
+                padding: 18px;
             }
 
             .card h2 {
-                font-size: 1.5em;
-            }
-
-            .card p {
-                font-size: 0.9em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                max-width: 100%;
-                border-radius: 15px;
-                padding: 15px;
-            }
-
-            .card h2 {
-                font-size: 1.2em;
+                font-size: 1.3em;
             }
 
             .card p {
                 font-size: 0.85em;
             }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                max-width: 95%;
+                border-radius: 12px;
+                padding: 12px;
+                min-height: 220px;
+            }
+
+            .card h2 {
+                font-size: 1em;
+            }
+
+            .card p {
+                font-size: 0.75em;
+            }
 
             .card .go-to {
-                font-size: 0.9em;
+                font-size: 0.8em;
             }
         }
     </style>
@@ -157,7 +158,7 @@
 
     <div class="card-container">
 
-        <a href="https://instadist-3zlxrvhf2-kelvemloubachs-projects.vercel.app/" class="card">
+        <a href="https://instadist.vercel.app/" class="card">
             <div class="card-content">
                 <h2>Projeto Atomação instagram</h2>
                 <p>Landing page moderna, alta performance!</p>
@@ -165,7 +166,7 @@
             </div>
         </a>
 
-        <a href="https://acheiteste-3ghf3fv5x-kelvemloubachs-projects.vercel.app/" class="card">
+        <a href="https://acheiteste-kelvemloubachs-projects.vercel.app/" class="card">
             <div class="card-content">
                 <h2>Projeto AcheinoZap</h2>
                 <p>Landing page otimizada, que transmite a indentidade do negócio!</p>
