@@ -21,13 +21,13 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .card-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             gap: 40px;
             padding: 20px;
             flex-wrap: wrap;
@@ -36,9 +36,8 @@
         /* --- Estilo Individual do Card --- */
         .card {
             position: relative;
-            width: 100%;
+            flex: 1 1 280px; /* responsivo */
             max-width: 320px;
-            height: auto;
             min-height: 320px;
             background-color: #1e1e1e;
             border-radius: 20px;
@@ -111,7 +110,7 @@
             transform: translateX(5px);
         }
 
-        /* --- Ajustes responsivos para telas menores --- */
+        /* --- Ajustes responsivos --- */
         @media (max-width: 768px) {
             .card-container {
                 gap: 15px;
@@ -169,24 +168,33 @@
         <a href="https://acheiteste-kelvemloubachs-projects.vercel.app/" class="card">
             <div class="card-content">
                 <h2>Projeto AcheinoZap</h2>
-                <p>Landing page otimizada, que transmite a indentidade do negócio!</p>
-                <span class="go-to">Acessar Projeto  &rarr;</span>
+                <p>Landing page otimizada, que transmite a identidade do negócio!</p>
+                <span class="go-to">Acessar Projeto &rarr;</span>
             </div>
         </a>
         
-         <a href="https://financas-landing.vercel.app/" class="card">
+        <a href="https://financas-landing.vercel.app/" class="card">
             <div class="card-content">
                 <h2>Finanças Landing</h2>
-                <p>Landing page otimizada, que transmite a indentidade do negócio!</p>
-                <span class="go-to">Acessar Projeto  &rarr;</span>
+                <p>Landing page otimizada, que transmite a identidade do negócio!</p>
+                <span class="go-to">Acessar Projeto &rarr;</span>
             </div>
         </a>
 
-          <a href="https://travel-six-theta.vercel.app/" class="card">
+        <a href="https://travel-six-theta.vercel.app/" class="card">
             <div class="card-content">
                 <h2>Travel</h2>
-                <p>Landing page otimizada, que transmite a indentidade do negócio!</p>
-                <span class="go-to">Acessar Projeto  &rarr;</span>
+                <p>Landing page otimizada, que transmite a identidade do negócio!</p>
+                <span class="go-to">Acessar Projeto &rarr;</span>
+            </div>
+        </a>
+
+        <!-- Novo Card -->
+        <a href="https://ebook-negx.vercel.app/" class="card">
+            <div class="card-content">
+                <h2>Ebook NegX</h2>
+                <p>Landing page moderna para venda de ebooks!</p>
+                <span class="go-to">Acessar Projeto &rarr;</span>
             </div>
         </a>
 
