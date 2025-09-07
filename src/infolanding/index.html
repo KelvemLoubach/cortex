@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Briefing - Criação de Landing Page</title>
+  <meta name="description" content="Formulário de briefing para criação de landing pages." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos personalizados para complementar o Tailwind */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .form-checkbox:checked,
+    .form-radio:checked {
+      background-color: #F97316; /* Laranja */
+      border-color: #F97316;
+    }
+    .form-checkbox:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    }
+    .form-radio:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    }
+    .form-section {
+        scroll-margin-top: 80px;
+    }
+    .color-palette-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .color-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .palette-preview {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding: 8px;
+      background-color: #f8fafc;
+      border-radius: 8px;
+    }
+    .palette-name {
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: #334155;
+    }
+    .palette-colors {
+      display: flex;
+      gap: 6px;
+    }
+    .palette-color {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="container mx-auto max-w-3xl px-4 py-6 sm:py-12">
+    <header class="text-center mb-8 sm:mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Briefing para Landing Page</h1>
+      <p class="mt-2 text-base sm:text-lg text-slate-600">Preencha os campos abaixo para começarmos a criar sua página.</p>
+    </header>
+    <div class="bg-white p-4 sm:p-6 md:p-10 rounded-2xl shadow-xl">
+      <form id="briefForm">
+        <!-- Seção 1: Informações Básicas -->
+        <fieldset class="form-section border-b border-slate-200 pb-6 mb-6 sm:pb-8 sm:mb-8" id="section-1">
+          <legend class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-slate-800">1. Informações de Contato</legend>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+            <div>
+              <label for="company" class="block text-sm font-medium text-slate-700 mb-1">Nome do cliente / empresa</label>
+              <input type="text" id="company" name="company" placeholder="Ex: Empresa XYZ" required class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">E-mail de contato</label>
+              <input type="email" id="email" name="email" placeholder="contato@exemplo.com" required class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+            </div>
+          </div>
+        </fieldset>
+        <!-- Seção 2: Objetivos -->
+        <fieldset class="form-section border-b border-slate-200 pb-6 mb-6 sm:pb-8 sm:mb-8" id="section-2">
+          <legend class="text-xl sm:text-2xl font-semibold mb-1 sm:mb-1 text-slate-800">2. Objetivos da Página</legend>
+          <p class="text-slate-600 mb-4 sm:mb-6">O que você espera alcançar com esta página?</p>
+          
+          <div class="mb-4 sm:mb-6">
+            <label class="block text-sm font-medium text-slate-700 mb-3">Qual o objetivo principal? (marque um ou mais)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="goals" value="Captar leads" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Captar leads</span></label>
+              <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="goals" value="Vender produto/serviço" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Vender produto/serviço</span></label>
+              <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="goals" value="Agendar consultas" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Agendar consultas</span></label>
+              <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="goals" value="Divulgar evento" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Divulgar evento</span></label>
+              <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="goals" value="Outro" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Outro</span></label>
+            </div>
+          </div>
+          <div class="mb-4 sm:mb-6">
+             <label for="goal_other" class="block text-sm font-medium text-slate-700 mb-1">Se marcou "Outro", por favor, descreva:</label>
+             <input type="text" name="goal_other" id="goal_other" placeholder="Descrição do objetivo (opcional)" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-3">Qual a ação principal que você quer que o visitante realize?</label>
+            <div class="flex flex-wrap gap-3">
+               <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="radio" name="primary_action" value="Preencher formulário" checked class="form-radio h-5 w-5 text-orange-500 focus:ring-orange-500"> <span>Preencher formulário</span></label>
+               <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="radio" name="primary_action" value="Entrar em contato via WhatsApp" class="form-radio h-5 w-5 text-orange-500 focus:ring-orange-500"> <span>Contato via WhatsApp</span></label>
+               <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="radio" name="primary_action" value="Fazer uma compra" class="form-radio h-5 w-5 text-orange-500 focus:ring-orange-500"> <span>Fazer uma compra</span></label>
+            </div>
+          </div>
+        </fieldset>
+        
+        <!-- Seção 3: Público -->
+        <fieldset class="form-section border-b border-slate-200 pb-6 mb-6 sm:pb-8 sm:mb-8" id="section-3">
+          <legend class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-slate-800">3. Público-Alvo</legend>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+              <div>
+                <label for="audience" class="block text-sm font-medium text-slate-700 mb-1">Para quem é esta página?</label>
+                <input type="text" id="audience" name="audience" placeholder="Ex: Mulheres 25-40, empreendedoras" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+              </div>
+              <div>
+                <label for="pain_points" class="block text-sm font-medium text-slate-700 mb-1">Quais as principais dores ou desejos desse público?</label>
+                <input type="text" id="pain_points" name="pain_points" placeholder="Ex: Falta de tempo, busca por mais clientes" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+              </div>
+          </div>
+        </fieldset>
+        
+        <!-- Seção 4: Conteúdo e Design -->
+        <fieldset class="form-section border-b border-slate-200 pb-6 mb-6 sm:pb-8 sm:mb-8" id="section-4">
+          <legend class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-slate-800">4. Conteúdo e Design</legend>
+          
+          <div class="mb-4 sm:mb-6">
+            <label for="has_copy" class="block text-sm font-medium text-slate-700 mb-1">Você já possui os textos (copy) para a página?</label>
+            <select id="has_copy" name="has_copy" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+              <option value="Sim, enviarei os textos">Sim, enviarei os textos</option>
+              <option value="Não, preciso que criem a copy">Não, preciso que criem a copy</option>
+            </select>
+          </div>
+          <div class="mb-4 sm:mb-6">
+             <label class="block text-sm font-medium text-slate-700 mb-3">Deseja incluir provas sociais?</label>
+             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+               <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="social" value="Depoimentos" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Depoimentos</span></label>
+               <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="social" value="Casos de sucesso" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Casos de sucesso</span></label>
+               <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="social" value="Logos de clientes" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Logos de clientes</span></label>
+             </div>
+          </div>
+          <div class="grid grid-cols-1 gap-6 mb-4 sm:mb-6">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-3">Irá enviar uma identidade visual/logo?</label>
+                <div class="flex gap-4">
+                    <label class="flex items-center space-x-2 bg-slate-50 border border-slate-200 rounded-lg p-3 flex-1 hover:bg-slate-100 cursor-pointer transition"><input type="radio" name="has_assets" value="Sim" class="form-radio h-5 w-5 text-orange-500 focus:ring-orange-500"> <span>Sim</span></label>
+                    <label class="flex items-center space-x-2 bg-slate-50 border border-slate-200 rounded-lg p-3 flex-1 hover:bg-slate-100 cursor-pointer transition"><input type="radio" name="has_assets" value="Não" checked class="form-radio h-5 w-5 text-orange-500 focus:ring-orange-500"> <span>Não</span></label>
+                </div>
+            </div>
+             <div>
+                <label for="color_palette" class="block text-sm font-medium text-slate-700 mb-1">Paleta de cores</label>
+                <select id="color_palette" name="color_palette" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+                    <option value="Vibrante & Moderno">Vibrante & Moderno</option>
+                    <option value="Sóbrio & Corporativo">Sóbrio & Corporativo</option>
+                    <option value="Natural & Calmo">Natural & Calmo</option>
+                    <option value="Luxuoso & Elegante">Luxuoso & Elegante</option>
+                    <option value="Amigável & Acessível">Amigável & Acessível</option>
+                    <option value="Energético & Jovem">Energético & Jovem</option>
+                    <option value="Tecnológico & Inovador">Tecnológico & Inovador</option>
+                    <option value="Minimalista & Clean">Minimalista & Clean</option>
+                    <option value="Criativo & Ousado">Criativo & Ousado</option>
+                    <option value="Aconchegante & Terroso">Aconchegante & Terroso</option>
+                </select>
+                <div id="color_palette_preview" class="palette-preview">
+                    <span class="palette-name">Vibrante & Moderno</span>
+                    <div class="palette-colors">
+                        <div class="palette-color" style="background-color: #F97316;" title="#F97316"></div>
+                        <div class="palette-color" style="background-color: #1E3A8A;" title="#1E3A8A"></div>
+                        <div class="palette-color" style="background-color: #FFFFFF;" title="#FFFFFF"></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div>
+             <label class="block text-sm font-medium text-slate-700 mb-1">Links de referência (páginas que você gosta)</label>
+             <div class="space-y-3">
+                <input type="url" name="ref1" placeholder="https://www.exemplo1.com" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+                <input type="url" name="ref2" placeholder="https://www.exemplo2.com (opcional)" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+                <input type="url" name="ref3" placeholder="https://www.exemplo3.com (opcional)" class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+             </div>
+          </div>
+        </fieldset>
+        
+        <!-- Seção 5: Detalhes Finais -->
+        <fieldset class="form-section" id="section-5">
+            <legend class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-slate-800">5. Detalhes Finais</legend>
+            <div class="mb-4 sm:mb-6">
+              <label class="block text-sm font-medium text-slate-700 mb-3">Precisa de alguma integração?</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="integrations" value="CRM" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>CRM</span></label>
+                  <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="integrations" value="E-mail Marketing" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>E-mail Marketing</span></label>
+                  <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="integrations" value="WhatsApp" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>WhatsApp</span></label>
+                  <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200 rounded-lg p-3 hover:bg-slate-100 cursor-pointer transition"><input type="checkbox" name="integrations" value="Agenda Online" class="form-checkbox h-5 w-5 rounded text-orange-500 focus:ring-orange-500"> <span>Agenda Online</span></label>
+              </div>
+            </div>
+            <div class="mb-4 sm:mb-6">
+                <label for="deadline" class="block text-sm font-medium text-slate-700 mb-1">Prazo desejado para entrega</label>
+                <input type="text" id="deadline" name="deadline" placeholder="Ex: 2 semanas, Urgente, etc." class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition">
+            </div>
+            <div class="mb-6">
+                <label for="notes" class="block text-sm font-medium text-slate-700 mb-1">Observações adicionais / Briefing livre</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Informações extras, tom de voz..." class="w-full rounded-lg border-slate-300 focus:border-orange-500 focus:ring-orange-500 transition"></textarea>
+            </div>
+        </fieldset>
+        
+        <!-- Ações -->
+        <div class="mt-8 pt-6 border-t border-slate-200">
+          <button type="submit" class="w-full bg-orange-500 text-white font-bold py-4 px-6 rounded-lg text-lg hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-opacity-50 transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Enviar Briefing via WhatsApp
+          </button>
+          <p class="text-center text-xs text-slate-500 mt-4">Ao clicar, você será redirecionado para o WhatsApp com a mensagem pronta para enviar.</p>
+        </div>
+      </form>
+    </div>
+    <footer class="text-center mt-8 text-sm text-slate-500">
+      <p>&copy; 2024 - Formulário de Briefing. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+  <script>
+    const form = document.getElementById('briefForm');
+    const colorPaletteSelect = document.getElementById('color_palette');
+    const colorPalettePreview = document.getElementById('color_palette_preview');
+    const colorPalettes = {
+        "Vibrante & Moderno": ["#F97316", "#1E3A8A", "#FFFFFF"],
+        "Sóbrio & Corporativo": ["#1E40AF", "#6B7280", "#F9FAFB"],
+        "Natural & Calmo": ["#4D7C0F", "#F5F5DC", "#8B4513"],
+        "Luxuoso & Elegante": ["#4B0082", "#FFD700", "#000000"],
+        "Amigável & Acessível": ["#3B82F6", "#FBBF24", "#FFFFFF"],
+        "Energético & Jovem": ["#EC4899", "#FDE047", "#22D3EE"],
+        "Tecnológico & Inovador": ["#2563EB", "#4B5563", "#D1D5DB"],
+        "Minimalista & Clean": ["#E5E7EB", "#FFFFFF", "#111827"],
+        "Criativo & Ousado": ["#FF7F50", "#40E0D0", "#FFC72C"],
+        "Aconchegante & Terroso": ["#E07A5F", "#FDF4E3", "#81B29A"]
+    };
+    function updateColorPreview() {
+        const selectedPaletteName = colorPaletteSelect.value;
+        const colors = colorPalettes[selectedPaletteName];
+        colorPalettePreview.innerHTML = ''; // Limpa as amostras anteriores
+        if (colors) {
+            // Criar o elemento para o nome da paleta
+            const paletteNameElement = document.createElement('span');
+            paletteNameElement.className = 'palette-name';
+            paletteNameElement.textContent = selectedPaletteName;
+            
+            // Criar o container para as cores
+            const colorsContainer = document.createElement('div');
+            colorsContainer.className = 'palette-colors';
+            
+            // Adicionar cada cor
+            colors.forEach(color => {
+                const swatch = document.createElement('div');
+                swatch.className = 'palette-color';
+                swatch.style.backgroundColor = color;
+                swatch.title = color; // Mostra o código da cor ao passar o mouse
+                colorsContainer.appendChild(swatch);
+            });
+            
+            // Adicionar nome e cores ao preview
+            colorPalettePreview.appendChild(paletteNameElement);
+            colorPalettePreview.appendChild(colorsContainer);
+        }
+    }
+    // Adiciona o listener para o evento de mudança
+    colorPaletteSelect.addEventListener('change', updateColorPreview);
+    // Chama a função uma vez no início para mostrar a paleta padrão
+    document.addEventListener('DOMContentLoaded', updateColorPreview);
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const phoneNumber = '5533999493748'; // Seu número de WhatsApp com código do país
+      const formData = new FormData(form);
+      let message = "📝 *Novo Briefing para Landing Page* 📝\n\n";
+      // Mapeia os nomes dos campos para rótulos mais amigáveis
+      const fieldLabels = {
+        company: "Nome da Empresa",
+        email: "E-mail de Contato",
+        goals: "Objetivos Principais",
+        goal_other: "Outro Objetivo",
+        primary_action: "Ação Principal",
+        audience: "Público-Alvo",
+        pain_points: "Dores/Desejos do Público",
+        has_copy: "Possui Textos (Copy)",
+        social: "Provas Sociais",
+        has_assets: "Enviará Identidade Visual/Logo",
+        color_palette: "Paleta de Cores",
+        ref1: "Referência 1",
+        ref2: "Referência 2",
+        ref3: "Referência 3",
+        integrations: "Integrações Necessárias",
+        deadline: "Prazo de Entrega",
+        notes: "Observações Adicionais",
+      };
+      
+      // Coleta os valores dos campos
+      const data = {};
+      for (let [key, value] of formData.entries()) {
+        // Ignora campos vazios, exceto os obrigatórios
+        if (!value && key !== 'company' && key !== 'email') continue;
+        
+        // Agrupa checkboxes
+        if (data[key]) {
+          if (!Array.isArray(data[key])) {
+            data[key] = [data[key]];
+          }
+          data[key].push(value);
+        } else {
+          data[key] = value;
+        }
+      }
+      // Constrói a mensagem
+      for (const key in fieldLabels) {
+          if (data[key]) {
+              let value = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
+              
+              // Se for o campo de paleta de cores, adiciona os hexadecimais
+              if (key === 'color_palette') {
+                  const paletteName = value;
+                  const colors = colorPalettes[paletteName];
+                  if (colors) {
+                      value = `${paletteName}\n   Cores: ${colors.join(', ')}`;
+                  }
+              }
+              
+              message += `*${fieldLabels[key]}:*\n${value}\n\n`;
+          }
+      }
+      const encodedMessage = encodeURIComponent(message.trim());
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
